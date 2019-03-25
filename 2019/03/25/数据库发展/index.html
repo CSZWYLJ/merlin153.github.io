@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>数据库发展 | Merlin&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="merlin,merlin's Blog">
+  
+  <meta name="description" content="所有的Linux发行版系统上都会默认内置vi编辑器，而不一定带有其他文本编辑器，非常通用；其次，很多软件的编辑接口都会默认调用vi；再者就是对很多热爱编程的大佬来说，可大大提高编程效率，很多黑客也是使用这个编辑器来减少自己摸鼠标时间的。 VI命令的工作模式更详细的文档请参考：http://c.biancheng.net/view/519.html  或 http://www.runoob.com">
+<meta name="keywords" content="数据库,SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库发展">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/数据库发展/index.html">
+<meta property="og:site_name" content="Merlin&#39;s Blog">
+<meta property="og:description" content="所有的Linux发行版系统上都会默认内置vi编辑器，而不一定带有其他文本编辑器，非常通用；其次，很多软件的编辑接口都会默认调用vi；再者就是对很多热爱编程的大佬来说，可大大提高编程效率，很多黑客也是使用这个编辑器来减少自己摸鼠标时间的。 VI命令的工作模式更详细的文档请参考：http://c.biancheng.net/view/519.html  或 http://www.runoob.com">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/viKeyboard.jpg">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/vicom.png">
+<meta property="og:updated_time" content="2019-03-25T07:33:00.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库发展">
+<meta name="twitter:description" content="所有的Linux发行版系统上都会默认内置vi编辑器，而不一定带有其他文本编辑器，非常通用；其次，很多软件的编辑接口都会默认调用vi；再者就是对很多热爱编程的大佬来说，可大大提高编程效率，很多黑客也是使用这个编辑器来减少自己摸鼠标时间的。 VI命令的工作模式更详细的文档请参考：http://c.biancheng.net/view/519.html  或 http://www.runoob.com">
+<meta name="twitter:image" content="http://pole6eku1.bkt.clouddn.com/viKeyboard.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Merlin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-book"></i>
+                        <span>Reading</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Merlin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个热爱 AI 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//merlin153.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/merlin153">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="CSDN" target="_blank" href="//https://blog.csdn.net/CYLYBYXH">
+                            <i class="fa fa-wrench fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//https://www.jianshu.com/u/e221c80bf14e">
+                            <i class="fa fa-bookmark fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="//https://juejin.im/user/5c8bb575e51d45360779b3e9">
+                            <i class="fa fa-viacoin fa-2x"></i></a>
+                    
+                        <a title="email" target="_blank" href="/merlin153@163.com">
+                            <i class="fa fa-envelope fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-数据库发展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      数据库发展
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-25
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>﻿所有的Linux发行版系统上都会默认内置vi编辑器，而不一定带有其他文本编辑器，非常通用；其次，很多软件的编辑接口都会默认调用vi；再者就是对很多热爱编程的大佬来说，可大大提高编程效率，很多黑客也是使用这个编辑器来减少自己摸鼠标时间的。</p>
+<h4 id="VI命令的工作模式"><a href="#VI命令的工作模式" class="headerlink" title="VI命令的工作模式"></a>VI命令的工作模式</h4><p>更详细的文档请参考：<a href="http://c.biancheng.net/view/519.html" target="_blank" rel="noopener">http://c.biancheng.net/view/519.html</a>  或 <a href="http://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-vim.html</a><br>简化图：<img src="http://pole6eku1.bkt.clouddn.com/viKeyboard.jpg" alt="简化图"></p>
+<p>vi编辑器有三种工作模式：命令模式、插入模式、末行模式。</p>
+<blockquote>
+<ul>
+<li>命令模式：<br>此时从键盘上输入的任何字符都被当做编辑命令来解释，同时该模式是进入 vi 编辑器后的默认模式。<strong>任何时候，不管用户处于何种模式，按下Esc键即可进入命令模式</strong>。</li>
+<li>插入模式（亦称编辑模式）：<br>在命令模式下输入插入命令i、附加命令a、打开命令o、修改命令c、取代命令r或替换命令s都可以进入文本输入模式。在该模式下，用户输入的任何字符都被 vi 当做文件内容保存起来，并将其显示在屏幕上。</li>
+<li>末行模式（亦称ex 转义模式）：<br>在命令模式下，用户按 : 键即可进入末行模式下，此时 vi 会在显示窗口的最后一行（通常也是屏幕的最后一行）显示一个:作为末行模式的说明符，等待用户输入命令。多数文件管理命令都是在此模式下执行的（如把编辑缓冲区的内容写到文件中等）。<br>vi 编辑器的 3 种模式的转换如下图所示：<br><img src="http://pole6eku1.bkt.clouddn.com/vicom.png" alt="3种模式转换"></li>
+</ul>
+</blockquote>
+<h4 id="VI命令的基本操作"><a href="#VI命令的基本操作" class="headerlink" title="VI命令的基本操作"></a>VI命令的基本操作</h4><p>一下文本内容的“#”为注释内容，说明功能</p>
+<h5 id="进入文件"><a href="#进入文件" class="headerlink" title="进入文件"></a>进入文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi test.py  # 打开名为test.py的文件，若不存在则创建并打开该文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果只输入 vi，而不带文件名，也可以进入 vi。这时编辑的文件是没有文件名的，所以在退出 vi 时，需要在退出命令后输入文件名，这样才能保证该文件被保存在磁盘中。</p>
+</blockquote>
+<h5 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h5><h6 id="插入文本（i和I）"><a href="#插入文本（i和I）" class="headerlink" title="插入文本（i和I）"></a>插入文本（i和I）</h6><blockquote>
+<p>i:将文本插入到光标所在位置前<br>I:I 命令将文本插入当前行的行首</p>
+</blockquote>
+<h6 id="追加文本（a和A）"><a href="#追加文本（a和A）" class="headerlink" title="追加文本（a和A）"></a>追加文本（a和A）</h6><blockquote>
+<p>a:将新文本追加到光标当前所在位置之后<br>A:命令将新文本追加到所在行的行尾</p>
+</blockquote>
+<h6 id="空行插入命令-o和O"><a href="#空行插入命令-o和O" class="headerlink" title="空行插入命令(o和O)"></a>空行插入命令(o和O)</h6><blockquote>
+<p>o：命令将在光标所在行的下面插入一个空行，并将光标置于该行的行首<br>O：命令在光标所在行的上面插入一个空行，并将光标置于该行的行首。</p>
+</blockquote>
+<h5 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h5><h6 id="字符移动"><a href="#字符移动" class="headerlink" title="字符移动"></a>字符移动</h6><table>
+<thead>
+<tr>
+<th>移动命令</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>左移一个光标</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下移一个光标</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上移一个光标</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右移一个光标</td>
+</tr>
+</tbody>
+</table>
+<h6 id="按字移动"><a href="#按字移动" class="headerlink" title="按字移动"></a>按字移动</h6><blockquote>
+<ul>
+<li>w 和 W 命令将光标右移至下一个字的字首。<br>区别：<br>-w  所指的字是指英文单词、标点符号和非字母字符；<br>-W  所指的字是指两个空格之间的任何内容；</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果光标起始位置处于字内，则 e 和 E 命令将把光标移到本字字尾；<br>如果光标起始位置处于字尾，则 e 和 E 命令将把光标移动到下一个字的字尾。<br>区别：<br>-e  所指的字是指英文单词、标点符号和非字母字符；<br>-E  所指的字是指两个空格之间的任何内容；</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果光标处于所在字内，则 b 和 B 命令将把光标移至本字字首；如果光标处于所在字字首，则 b 和 B 命令将把光标移到上一个字的字首。<br>区别：<br>-b 命令所指的字是指英文单词、标点符号和非字母字符；<br>-B 命令所指的字是指两个空格之间的任何内容。</li>
+</ul>
+</blockquote>
+<h6 id="按行移动"><a href="#按行移动" class="headerlink" title="按行移动"></a>按行移动</h6><blockquote>
+<ul>
+<li>H：将光标移至当前屏幕的第 1 行，而不是整个文件的第 1 行。若在 H 命令之前加 上数字 n，则将光标移至第 n 行的行首</li>
+<li>M：将光标移至屏幕显示文件的中间行的行首。即如果当前屏幕已经充满，则移动到整个屏幕的中间行；否则，移动到显示文本的那些行的中间行。</li>
+<li>L：将光标移至屏幕显示文件的最底行的行首。即如果文件内容需要超过一个屏幕显示时，该命令将光标移至屏幕上最底行的行首；否则该命令将光标移至文件最后一行的行首。</li>
+<li>G：在全文的范围内移动光标，此时的光标移动范围不再受屏幕的限制。例如，在上例中，在命令模式下输入命令 5G 之后光标将移到第 5 行的行首。</li>
+</ul>
+</blockquote>
+<h6 id="按段落移动光标"><a href="#按段落移动光标" class="headerlink" title="按段落移动光标"></a>按段落移动光标</h6><p>一个段落被定义为是以一个空白行开始和结束的片段。按段落移动光标的命令有以下两种:</p>
+<blockquote>
+<ul>
+<li>{：该命令将光标向前移至上一个段落的开头。</li>
+<li>}：该命令将光标向后移至下一个段落的开头。</li>
+</ul>
+</blockquote>
+<h5 id="文本移动"><a href="#文本移动" class="headerlink" title="文本移动"></a>文本移动</h5><h6 id="文本行移动"><a href="#文本行移动" class="headerlink" title="文本行移动"></a>文本行移动</h6><blockquote>
+<ul>
+<li>>:将指定的正文行向右移动。</li>
+<li>>n：n表示光标所在位置后面的文本行数。也可以不写 n，此时默认为 1。<br>&lt;:命令将指定的正文行向左移动。其使用方式与命令相同，但是方向相反。</li>
+<li>>&gt;:该命令将光标所在行右移 8 个空格。如果在&gt;&gt;命令之前给出一个数字 n，例如 4，则表示光标当前行及其下面的 3 行（共4行）都右移 8 个空格。</li>
+<li>&lt;&lt;:命令将光标所在行左移 8 个空格。其使用与&gt;&gt;命令相同，但是移动方向相反。</li>
+</ul>
+</blockquote>
+<h6 id="文本跨行移动-m命令"><a href="#文本跨行移动-m命令" class="headerlink" title="文本跨行移动(m命令)"></a>文本跨行移动(m命令)</h6><blockquote>
+<ul>
+<li>imj:表示把第 i 行移至第 j 行的下方。下面实例演示了 m 命令的使用。例：6m2,就是将第6行的内容移动到第2行的下方</li>
+</ul>
+</blockquote>
+<h5 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h5><h6 id="字符替换"><a href="#字符替换" class="headerlink" title="字符替换"></a>字符替换</h6><blockquote>
+<ul>
+<li>r: 将当前光标所指的字符替换为提供的字符。可以在该命令之前加上数字 n，表示将从当前字符开始的 n 个字符替换为提供的字符。下面实例演示了 r 命令的使用。</li>
+<li>R:该命令会让 vi 进入 replace 模式。在此模式下，每个输入的字符都会替换当前光标下的字符，直到输入 \<esc> 结束该模式。</esc></li>
+</ul>
+</blockquote>
+<h6 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h6><blockquote>
+<ul>
+<li>[range]s/s1/s2/ [option]</li>
+</ul>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> [range] 表示检索范围，省略时表示当前行；<br>1,10表示从第 1 行到 10 行；<br>%表示整个文件，同1, $；<br>. ,$从当前行到文件尾。</li>
+<li style="list-style: none"><input type="checkbox" checked> s 为替换命令。</li>
+<li style="list-style: none"><input type="checkbox" checked> s1 要被替换的串，s2 为替换的串。</li>
+<li style="list-style: none"><input type="checkbox" checked> option 表示选项：<br>/g表示在全局文件中进行替换;<br>/c表示在每次替换之前需要用户进行确认;<br>省略时仅对每行第一个匹配串进行替换。<br>例如：%s/\&lt;abc/cde    表示将以 abc 开头的单词替换为以 cde 开头。</li>
+</ul>
+</blockquote>
+<h5 id="辅助操作"><a href="#辅助操作" class="headerlink" title="辅助操作"></a>辅助操作</h5><h6 id="字符串检索"><a href="#字符串检索" class="headerlink" title="字符串检索"></a>字符串检索</h6><blockquote>
+<ul>
+<li>/String:从光标处开始向后寻找字符串 string。</li>
+<li>?String:从光标处开始向前寻找字符串 string。</li>
+</ul>
+</blockquote>
+<h6 id="文本复制和粘贴"><a href="#文本复制和粘贴" class="headerlink" title="文本复制和粘贴"></a>文本复制和粘贴</h6><blockquote>
+<ul>
+<li>v 命令：在命令模式下进行<strong>文本选择</strong>。在需要选择的文本的起始处按下 v 键进入块选择模式，然后移动光标到块尾处。这之间的部分被高亮显示，表示被选中.</li>
+<li>V 命令：在命令模式下按行进行文本选择。在需要选择的文本的第一行按下 V 键，然后移动光标到块的最后一行。这之间的所有行被高亮显示，表示被选中。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>yy ：<strong>复制</strong>光标所在的整行。在 yy 前可加一个数字 n，表示复制当前行及其后 n-1 行的内容。</li>
+<li>Y 或 y$ ：两命令功能一样，都是复制从光标所在处开始到行尾的内容。</li>
+<li>yw ：复制一个单词。若光标处在某个词的中间，则从光标所在位置开始复制至词尾。同 yy 命令一样，可在 yw 之前加一个数字 n，表示复制 n 个指定的单词。</li>
+<li>y) ：复制到下一句幵始的所有字符。</li>
+<li>y} ：复制到下一段开始的所有字符。</li>
+<li>y\<cr> （\<cr> 表示回车）：复制包括当前行在内的两行内容。</cr></cr></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>p 命令：<strong>粘贴</strong>命令，粘贴当前缓冲区中的内容</li>
+</ul>
+</blockquote>
+<h6 id="文本删除"><a href="#文本删除" class="headerlink" title="文本删除"></a>文本删除</h6><blockquote>
+<p>删除单个字符</p>
+<ul>
+<li>x 命令：删除光标处的字符。若在 x 之前加上一个数字 n，则删除从光标所在位置开始向右的 n 个字符</li>
+<li>X 命令：删除光标前面的字符。若在 X 之前加上一个数字 n，则删除从光标前面那个字符开始向左的 n 个字符。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>删除多个字符</p>
+<ul>
+<li>dd 命令：该命令删除光标所在的整行。在 dd 前可加上一个数字 n，表示删除当前行及其后 n-1 行的内容。</li>
+<li>D 命令或 d$ 命令：两个命令功能一样，都是删除从光标所在处开始到行尾的内容。</li>
+<li>d0 命令：该命令删除从光标前一个字符开始到行首的内容。</li>
+<li>dw 命令：该命令删除一个单词。若光标处在某个词的中间，则从光标所在位置开始删至词尾。同 dd 命令一样，可在 dw 之前加一个数字n，表示删除 n 个指定的单词。</li>
+<li>d( 命令：该命令删除到上一句开始的所有字符。</li>
+<li>d) 命令：该命令删除到下一句开始的所有字符。</li>
+<li>d} 命令：该命令删除到上一段开始的所有字符。</li>
+<li>d{ 命令：该命令删除到下一段开始的所有字符。</li>
+<li>d\<cr> 命令：该命令（\<cr>表示回车）删除包括当前行在内的两行字符。</cr></cr></li>
+</ul>
+</blockquote>
+<h6 id="操作撤销"><a href="#操作撤销" class="headerlink" title="操作撤销"></a>操作撤销</h6><blockquote>
+<ul>
+<li>u ：该命令撤销上一次所做的操作。多次使用 u 命令会一步一步依次撤销之前做过的操作（在一次切换到文本输入模式中输入的所有文本算一次操作）。</li>
+<li>U ：该命令会一次性撤销自上次移动到当前行以来做过的所有操作，再使用一次 U 命令则撤销之前的 U 命令所做的操作，恢复被撤销的内容。</li>
+</ul>
+</blockquote>
+<h6 id="退出文件"><a href="#退出文件" class="headerlink" title="退出文件"></a>退出文件</h6><blockquote>
+<ul>
+<li>:wq vi将先保存文件，然后退出 vi 返回到 shell。如果当前文件尚未取名，则需要现指定一个文件名。</li>
+<li>:x 在末行模式下，若当前编辑文件曾被修改过，则 vi 会保存该文件。否则 vi 直接退出，不保存该文件。</li>
+</ul>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月25日 15:33</p>
+        <p>原始链接： <a class="post-url" href="/2019/03/25/数据库发展/" title="数据库发展">http://yoursite.com/2019/03/25/数据库发展/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="merlin">
+                merlin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/25/数据库发展/&title=《数据库发展》 — Merlin's Blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/25/数据库发展/&title=《数据库发展》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/25/数据库发展/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据库发展》 — Merlin's Blog&url=http://yoursite.com/2019/03/25/数据库发展/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/25/数据库发展/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/03/25/数据库发展/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数据库/" class="color4">数据库</a>
+      
+    <a href="/tags/SQL/" class="color4">SQL</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VI命令的工作模式"><span class="post-toc-text">VI命令的工作模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VI命令的基本操作"><span class="post-toc-text">VI命令的基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#进入文件"><span class="post-toc-text">进入文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改文件"><span class="post-toc-text">修改文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#插入文本（i和I）"><span class="post-toc-text">插入文本（i和I）</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#追加文本（a和A）"><span class="post-toc-text">追加文本（a和A）</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#空行插入命令-o和O"><span class="post-toc-text">空行插入命令(o和O)</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#移动光标"><span class="post-toc-text">移动光标</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#字符移动"><span class="post-toc-text">字符移动</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#按字移动"><span class="post-toc-text">按字移动</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#按行移动"><span class="post-toc-text">按行移动</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#按段落移动光标"><span class="post-toc-text">按段落移动光标</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#文本移动"><span class="post-toc-text">文本移动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#文本行移动"><span class="post-toc-text">文本行移动</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#文本跨行移动-m命令"><span class="post-toc-text">文本跨行移动(m命令)</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#替换"><span class="post-toc-text">替换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#字符替换"><span class="post-toc-text">字符替换</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#字符串替换"><span class="post-toc-text">字符串替换</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#辅助操作"><span class="post-toc-text">辅助操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#字符串检索"><span class="post-toc-text">字符串检索</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#文本复制和粘贴"><span class="post-toc-text">文本复制和粘贴</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#文本删除"><span class="post-toc-text">文本删除</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#操作撤销"><span class="post-toc-text">操作撤销</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#退出文件"><span class="post-toc-text">退出文件</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hello World</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="数据库发展"></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyu9kxEBM';
+        var conf = 'abf1ced8e3f36f007b43fd47d1214c91';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 merlin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-book"></i><span>Reading</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i["DaoVoiceObject"]=r;
+      i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
+      a=s.createElement(o),m=s.getElementsByTagName(o)[0];
+      a.async=1;a.src=g;a.charset="utf-8";
+      m.parentNode.insertBefore(a,m)}
+    )(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/" + "a702189a" + ".js","daovoice")
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: "a702189a",
+      user_id: "NO_89757",
+      email: "",
+      name: "",
+      signed_up: 1449821660
+    });
+    daovoice('update');
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: ""
+    });
+    daovoice('update');
+  </script>
+
