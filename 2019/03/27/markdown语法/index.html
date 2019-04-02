@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Markdown 语法 | Merlin&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="merlin,merlin's Blog">
+  
+  <meta name="description" content="目录1234* 总目录  * 一级目录    * 二级目录      * 三级目录 说明：层级列表一般只支持三级列表，第一级实心圆点，第二级空心圆点，第三级以后都是实心方点。要实现层级列表，每下一级都要比上一级多输入2个空格或者一个Tab，而且第一级前面不要超过3个空格.效果图： 标题123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题">
+<meta name="keywords" content="markdown,博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 语法">
+<meta property="og:url" content="http://merlin153.com/2019/03/27/markdown语法/index.html">
+<meta property="og:site_name" content="Merlin&#39;s Blog">
+<meta property="og:description" content="目录1234* 总目录  * 一级目录    * 二级目录      * 三级目录 说明：层级列表一般只支持三级列表，第一级实心圆点，第二级空心圆点，第三级以后都是实心方点。要实现层级列表，每下一级都要比上一级多输入2个空格或者一个Tab，而且第一级前面不要超过3个空格.效果图： 标题123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7244053-6c2da219442f650e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7244053-4275320977683577.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7244053-6856f00a025f0b31.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://i.loli.net/2019/03/30/5c9f1ccc9043f.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7244053-0e36d6bcb8c735cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7244053-c39be6640836476b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7244053-0c4db309950cfb13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7244053-18532e13ccaf3a42.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-04-02T15:01:07.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown 语法">
+<meta name="twitter:description" content="目录1234* 总目录  * 一级目录    * 二级目录      * 三级目录 说明：层级列表一般只支持三级列表，第一级实心圆点，第二级空心圆点，第三级以后都是实心方点。要实现层级列表，每下一级都要比上一级多输入2个空格或者一个Tab，而且第一级前面不要超过3个空格.效果图： 标题123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7244053-6c2da219442f650e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Merlin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-book"></i>
+                        <span>Reading</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Merlin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个热爱 AI 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//merlin153.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/merlin153">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="CSDN" target="_blank" href="//https://blog.csdn.net/CYLYBYXH">
+                            <i class="fa fa-wrench fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//https://www.jianshu.com/u/e221c80bf14e">
+                            <i class="fa fa-bookmark fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="//https://juejin.im/user/5c8bb575e51d45360779b3e9">
+                            <i class="fa fa-viacoin fa-2x"></i></a>
+                    
+                        <a title="email" target="_blank" href="/merlin153@163.com">
+                            <i class="fa fa-envelope fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Markdown 语法
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/markdown语法/">markdown语法</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-26
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 总目录</span><br><span class="line">  * 一级目录</span><br><span class="line">    * 二级目录</span><br><span class="line">      * 三级目录</span><br></pre></td></tr></table></figure>
+<p>说明：层级列表一般只支持三级列表，第一级实心圆点，第二级空心圆点，第三级以后都是实心方点。要实现层级列表，<strong>每下一级都要比上一级多输入2个空格或者一个Tab，而且第一级前面不要超过3个空格.</strong><br>效果图：<br><img src="http://upload-images.jianshu.io/upload_images/7244053-6c2da219442f650e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分级目录"></p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+<p>样式如下：<br>效果图：<br><img src="http://upload-images.jianshu.io/upload_images/7244053-4275320977683577.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分级标题"></p>
+<h2 id="字体格式"><a href="#字体格式" class="headerlink" title="字体格式"></a>字体格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*斜体方式1* 或 _斜体方式2_ </span><br><span class="line">**粗体** </span><br><span class="line">***加粗斜体*** </span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>效果图:<br><img src="http://upload-images.jianshu.io/upload_images/7244053-6856f00a025f0b31.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="字体样式"></p>
+<h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h2><p>网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中内容的跳转。比如我们经常读的论文或者PDF，里面就包含着丰富的锚点，其中的目录就是锚点，点击一个章节就能快跳到对应文本内容，以此实现文章内部内容的跳跃。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">* [目录<span class="number">1</span>](#<span class="number">40</span>)</span><br><span class="line">   * [标题<span class="number">1</span>](#<span class="number">41</span>)</span><br><span class="line">   * [标题<span class="number">2</span>](#<span class="number">42</span>)</span><br><span class="line">   * [标题<span class="number">3</span>](#<span class="number">43</span>)</span><br><span class="line">&lt;h3 id=<span class="string">"41"</span>&gt;标题<span class="number">1</span>&lt;/h3&gt;</span><br><span class="line">    我是标题<span class="number">1</span>的内容</span><br><span class="line">&lt;h3 id=<span class="string">"42"</span>&gt;标题<span class="number">2</span>&lt;/h3&gt;</span><br><span class="line">    我是标题<span class="number">2</span>的内容</span><br><span class="line">&lt;h3 id=<span class="string">"43"</span>&gt;标题<span class="number">3</span>&lt;/h3&gt;</span><br><span class="line">    我是标题<span class="number">3</span>的内容</span><br></pre></td></tr></table></figure></p>
+<p>效果图：<br><img src="https://i.loli.net/2019/03/30/5c9f1ccc9043f.jpg" alt="锚点"></p>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><ul>
+<li>行内式（用的较多）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">欢迎来到[google](www.google.com)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>语法：[]里写链接文字，()里写链接地址, ()中的”“中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字。链接地址与链接标题前有一个空格。</p>
+</blockquote>
+<ul>
+<li>自动链接<br>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;http://www.merlin153.com/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果：<br><a href="http://www.merlin153.com/" target="_blank" rel="noopener">http://www.merlin153.com/</a>  </p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
+<li>常用列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 有序列表，使用数字、英文句点即可</span><br><span class="line">1. 有序列表一</span><br><span class="line">2. 有序列表二</span><br><span class="line">3. 有序列表三</span><br><span class="line"># 无序列表，使用 - ，+ ， * 都可表示无序列表 </span><br><span class="line">- 无序列表一</span><br><span class="line">+ 无序列表二</span><br><span class="line">- 无序列表三</span><br><span class="line"># 任务列表，要创建任务列表，前缀列表项[ ]。要将任务标记为完整，请使用[x]</span><br><span class="line">- [x] 文本一</span><br><span class="line">- [ ] 文本二</span><br><span class="line">- [ ] 文本三</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果图：</p>
+<blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/7244053-0e36d6bcb8c735cf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="列表效果"></p>
+</blockquote>
+<ul>
+<li>定义型列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">名词1</span><br><span class="line">:    定义 1（左侧有一个可见的冒号和四个不可见的空格）</span><br><span class="line">代码块 2</span><br><span class="line">:    这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</span><br><span class="line">  代码块（左侧有八个不可见的空格）</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果图：<br><img src="http://upload-images.jianshu.io/upload_images/7244053-c39be6640836476b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="定义型列表"></p>
+<ul>
+<li>列表缩进<br>列表项目标记通常是放在最左边，但是其实也可以缩进，最多 3 个空格，项目标记后面则一定要接着至少一个空格或制表符。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* 这是第一段，当文章很长的时候才能看出来他的缩进效果，其实这种缩进看起来更像是一种无序列表，所以就当无序列表使用吧！</span><br><span class="line">* 这是第二段，当文章很长的时候才能看出来他的缩进效果，其实这种缩进看起来更像是一种无序列表，所以就当无序列表使用吧！</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果图：<br><img src="http://upload-images.jianshu.io/upload_images/7244053-0c4db309950cfb13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="缩进效果"></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>图片的创建方式与超链接相似，而且和超链接一样也有两种写法，行内式和参考式写法。（注：图片链接可通过图床获取，比较好用的图床有SM.MS,  七牛图床等等）</p>
+<ul>
+<li><p>行内式（常用）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[图片上传失败...(image-ebedc-1553931814787)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在文档要插入图片的地方写![图片名称][标记]</span><br><span class="line">在文档的最后写上[标记]:图片地址 “Title”</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>图片的效果就没必要演示了，正确的语法就能实现。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>只需在前面加上 &gt; 符号即可实现，引用也可以嵌套<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这是引用</span><br><span class="line">&gt;&gt; 这是引用嵌套</span><br><span class="line">&gt;&gt;&gt;多层嵌套</span><br></pre></td></tr></table></figure></p>
+<p>效果图：<br><img src="http://upload-images.jianshu.io/upload_images/7244053-18532e13ccaf3a42.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="引用效果"></p>
+<h2 id="代码段"><a href="#代码段" class="headerlink" title="代码段"></a>代码段</h2><p>通过三个 · 或者 ~ 实现，也可以实现包裹代码，在第一个 <figure class="highlight plain"><figcaption><span>~~~ 的后面紧跟语言名称可实现智能识别，以便实现代码高亮风格。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">~~~python</span><br><span class="line">print(&quot;hello world&quot;)</span><br><span class="line">~~~</span><br></pre></td></tr></table></figure></p>
+<p>效果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|name|age|</span><br><span class="line">|:-|-:|</span><br><span class="line">|内容|意义。。|</span><br></pre></td></tr></table></figure>
+<p>表格第一栏填写名称，第二栏可以在两个 | 之间添加 - 实现表格，再在 - 左右两边添加 : 实现内容向左右边靠。<br>效果图：<br>| name |      age |<br>| :— | ——-: |<br>| 内容 | 意义。。 |<br>| 内容 | 意义。。 |</p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>在需要添加注脚的文字后加上脚注名字[^注脚名字],称为加注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。<br> 注意：<strong>经测试注脚与注脚之间必须空一行，不然会失效</strong>。成功后会发现，即使你没有把注脚写在文末，经Markdown转换后，也会自动归类到文章的最后。<br>效果：比如点击这里^[1]，会跳转到底部</p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p>Markdown也可以实现流程图绘制，更多语法参考：<a href>流程图语法参考</a></p>
+<h2 id="LaTeX-公式"><a href="#LaTeX-公式" class="headerlink" title="LaTeX 公式"></a>LaTeX 公式</h2><p>抱歉很少用到，可能论文上用的多吧，如果需要可以参考<a href="http://xiaosheng.me/2017/02/03/article28/" target="_blank" rel="noopener">There</a></p>
+<p><strong><em>{ 基础语法感觉就够用了，流程图截图就好了，后续更新中。。。 }</em></strong></p>
+<hr>
+<p>参考文章:<br>^[1]:<a href="https://yuhongjun.github.io/tech/2017/05/02/Markdown-%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C-%E5%AE%8C%E6%95%B4%E6%95%B4%E7%90%86%E7%89%88.html#142-%E7%BC%A9%E8%BF%9B%E5%BC%8F%E5%A4%9A%E8%A1%8C%E4%BB%A3%E7%A0%81）
+^[2]: [果冻虾仁的markdown语法总结](https://github.com/guodongxiaren/README#readme" target="_blank" rel="noopener">Demi的技术空间</a><br>^[3]:<a href="https://coding.net/help/doc/project/markdown.html#i-11" target="_blank" rel="noopener">Coding下的markdown语法</a><br>^[4]:<a href="https://blog.csdn.net/u014061630/article/details/81359144" target="_blank" rel="noopener">文图详解请参考这里</a></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年04月02日 23:01</p>
+        <p>原始链接： <a class="post-url" href="/2019/03/27/markdown语法/" title="Markdown 语法">http://merlin153.com/2019/03/27/markdown语法/</a></p>
+        <footer>
+            <a href="http://merlin153.com">
+                <img src="/images/logo.png" alt="merlin">
+                merlin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/03/27/markdown语法/&title=《Markdown 语法》 — Merlin's Blog&pic=/images/markdown.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/03/27/markdown语法/&title=《Markdown 语法》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/03/27/markdown语法/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown 语法》 — Merlin's Blog&url=http://merlin153.com/2019/03/27/markdown语法/&via=http://merlin153.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/03/27/markdown语法/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/03/27/markdown语法/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/markdown/" class="color4">markdown</a>
+      
+    <a href="/tags/博客/" class="color3">博客</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录"><span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标题"><span class="post-toc-text">标题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字体格式"><span class="post-toc-text">字体格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#锚点"><span class="post-toc-text">锚点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#超链接"><span class="post-toc-text">超链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表"><span class="post-toc-text">列表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片"><span class="post-toc-text">图片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引用"><span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码段"><span class="post-toc-text">代码段</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表格"><span class="post-toc-text">表格</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#脚注"><span class="post-toc-text">脚注</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#流程图"><span class="post-toc-text">流程图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LaTeX-公式"><span class="post-toc-text">LaTeX 公式</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/04/02/初学Python/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          初学Python
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/03/27/博客搭建记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">博客搭建记录</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="markdown语法"></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyu9kxEBM';
+        var conf = 'abf1ced8e3f36f007b43fd47d1214c91';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 merlin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://merlin153.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-book"></i><span>Reading</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i["DaoVoiceObject"]=r;
+      i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
+      a=s.createElement(o),m=s.getElementsByTagName(o)[0];
+      a.async=1;a.src=g;a.charset="utf-8";
+      m.parentNode.insertBefore(a,m)}
+    )(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/" + "a702189a" + ".js","daovoice")
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: "a702189a",
+      user_id: "NO_89757",
+      email: "",
+      name: "",
+      signed_up: 1449821660
+    });
+    daovoice('update');
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: ""
+    });
+    daovoice('update');
+  </script>
+
