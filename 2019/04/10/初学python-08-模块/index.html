@@ -3,29 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Pycharm个性设置 | Merlin&#39;s Blog</title>
+  <title>初学python(08--模块) | Merlin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="merlin,merlin's Blog">
   
-  <meta name="description" content="早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实IDE也就是个能让你提高工作和管理的可视化软件，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的ID">
+  <meta name="description" content="模块的产生 Python 有一个交互式的解释器。在解释器中，你可以使用 Python 的所有功能。但是，解释器是一次性的。也就是说，如果你关掉解释器，那么先前定义、运行的一切东西，都会丢失不见。另一方面，在解释器中输入代码是一件很麻烦的事情；这是因为在解释器中实现复用代码方面比较困难。 因此为了提高代码复用率，把一组相关的 Python 相关的定义、声明保存在同一个 .py 文件中（很多编程语言都">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pycharm个性设置">
-<meta property="og:url" content="http://merlin153.com/2019/04/09/Pycharm个性设置/index.html">
+<meta property="og:title" content="初学python(08--模块)">
+<meta property="og:url" content="http://merlin153.com/2019/04/10/初学python-08-模块/index.html">
 <meta property="og:site_name" content="Merlin&#39;s Blog">
-<meta property="og:description" content="早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实IDE也就是个能让你提高工作和管理的可视化软件，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的ID">
+<meta property="og:description" content="模块的产生 Python 有一个交互式的解释器。在解释器中，你可以使用 Python 的所有功能。但是，解释器是一次性的。也就是说，如果你关掉解释器，那么先前定义、运行的一切东西，都会丢失不见。另一方面，在解释器中输入代码是一件很麻烦的事情；这是因为在解释器中实现复用代码方面比较困难。 因此为了提高代码复用率，把一组相关的 Python 相关的定义、声明保存在同一个 .py 文件中（很多编程语言都">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/03/30/5c9f89874ec4d.gif">
-<meta property="og:image" content="https://i.loli.net/2019/03/31/5ca02be8683d1.gif">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/codebgcolor.jpg">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/setlinenum.jpg">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/othersetting.jpg">
-<meta property="og:updated_time" content="2019-04-08T15:13:28.363Z">
+<meta property="og:updated_time" content="2019-04-09T14:42:07.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pycharm个性设置">
-<meta name="twitter:description" content="早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实IDE也就是个能让你提高工作和管理的可视化软件，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的ID">
-<meta name="twitter:image" content="https://i.loli.net/2019/03/30/5c9f89874ec4d.gif">
+<meta name="twitter:title" content="初学python(08--模块)">
+<meta name="twitter:description" content="模块的产生 Python 有一个交互式的解释器。在解释器中，你可以使用 Python 的所有功能。但是，解释器是一次性的。也就是说，如果你关掉解释器，那么先前定义、运行的一切东西，都会丢失不见。另一方面，在解释器中输入代码是一件很麻烦的事情；这是因为在解释器中实现复用代码方面比较困难。 因此为了提高代码复用率，把一组相关的 Python 相关的定义、声明保存在同一个 .py 文件中（很多编程语言都">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -122,14 +116,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Pycharm个性设置" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-初学python-08-模块" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Pycharm个性设置
+      初学python(08--模块)
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -142,7 +136,7 @@
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-04-08
+          <i class="fa fa-calendar"></i>  2019-04-09
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -158,29 +152,40 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实<strong>IDE也就是个能让你提高工作和管理的可视化软件</strong>，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。<br>说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的IDE软件–Pycharm（目前还在使用中，后面会不断更新自定义的使用操作……）。</p>
-<blockquote>
-<p>Pycharm是由Jetbrains开发的优秀的Python IDE。正如所有其它 JetBrains 集成开发环境一样，PyCharm 具有智能代码编辑器，能理解 Python 的特性并提供卓越的生产力推进工具：自动代码格式化、代码完成、重构、自动导入和一键代码导航等。这些功能在先进代码分析程序的支持下，使 PyCharm 成为 Python 专业开发人员和刚起步人员使用的有力工具。</p>
+            <h2 id="模块的产生"><a href="#模块的产生" class="headerlink" title="模块的产生"></a>模块的产生</h2><ol>
+<li>Python 有一个交互式的解释器。在解释器中，你可以使用 Python 的所有功能。但是，解释器是一次性的。也就是说，<strong>如果你关掉解释器，那么先前定义、运行的一切东西，都会丢失不见</strong>。另一方面，在解释器中输入代码是一件很麻烦的事情；这是因为在解释器中实现复用代码方面比较困难。</li>
+<li>因此为了提高代码复用率，把一组相关的 Python 相关的定义、声明保存在同一个 .py 文件中（很多编程语言都采用了这种编程思想）。此时，这个 Python 脚本就是一个 Python 模块（Module），因此一个.py文件就称之为一个模块（Module）。<br>模块最大的好处是大大提高了代码的可维护性。我们在编写程序的时候，也经常引用其他模块，包括Python内置的模块和来自第三方的模块我们在编写程序的时候，也经常引用其他模块，包括Python内置的模块和来自第三方的模块，通过 import 载入定义好的 Python 模块。</li>
+<li>或许你就有疑问，如果不同的人编写的模块名相同，Python会怎么处理？<br>为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包（Package）。使用模块可以避免函数名和变量名冲突。相同名字的函数和变量完全可以分别存在不同的模块中，因此，我们自己在编写模块时，不必考虑名字会与其他模块冲突。但是也要注意，尽量不要与内置函数名字冲突。点<a href="http://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">这里</a>查看Python的所有内置函数。<h2 id="模块识别（内部和初始化）"><a href="#模块识别（内部和初始化）" class="headerlink" title="模块识别（内部和初始化）"></a>模块识别（内部和初始化）</h2>待补充。。<h2 id="模块查看"><a href="#模块查看" class="headerlink" title="模块查看"></a>模块查看</h2>随着使用python的时间越来越长，安装的python模块也越来越多，如果想要查看一下自己安装的python模块，可用以下方法：<h4 id="通用帮助函数help"><a href="#通用帮助函数help" class="headerlink" title="通用帮助函数help()"></a>通用帮助函数help()</h4></li>
+<li>在python命令行中键入help(),即可进入 <em>help帮助文档界面</em><br>继续输入你想查看的模块信息，比如modules，math等等</li>
+</ol>
+<ul>
+<li>可以继续键入相应的模块名称得到该模块的帮助信息。 <blockquote>
+<p>这是python的通用的查询帮助，可以查到几乎所有的帮助文档，但我们很多时候不需要这样层级式地向下查询，接下来会介绍如何直接查询特定的模块和函数帮助信息。</p>
 </blockquote>
-<h2 id="配置编辑窗口"><a href="#配置编辑窗口" class="headerlink" title="配置编辑窗口"></a>配置编辑窗口</h2><h4 id="配置代码颜色"><a href="#配置代码颜色" class="headerlink" title="配置代码颜色"></a>配置代码颜色</h4><ul>
-<li><p><strong>方式一</strong>：如果不想自定义设置，可以参考这个<a href="https://blog.csdn.net/yuhaowow/article/details/78601808" target="_blank" rel="noopener">链接</a><br>，喜欢的话<a href="https://github.com/yuhaowow/GeneralConfig" target="_blank" rel="noopener">点击这里</a>下载Jetbrains的全家桶包，里面有两个jar包，配置Pycharm就选在Pycharm的jar包，选全家桶的也没关系，因为是jar包，所以直接导入，操作是（file-&gt;import setting-&gt;color scheme font(或者python)，不满意可以微微修改。（不想麻烦也可以在百度网盘下载（链接: 链接：<a href="https://pan.baidu.com/s/14En5fMSs4O7Nd6_9U1vMKw" target="_blank" rel="noopener">https://pan.baidu.com/s/14En5fMSs4O7Nd6_9U1vMKw</a><br>提取码：obhr  复制这段内容后打开百度网盘手机App，操作更方便哦））<br><img src="https://i.loli.net/2019/03/30/5c9f89874ec4d.gif" alt="修改代码颜色"></p>
-</li>
-<li><p><strong>方式二</strong> 可以去网上找一些Pycharm代码主题风格的配置文件(以 <strong>.icls</strong>格式结尾的)，也可以参考我这里(链接：<a href="https://pan.baidu.com/s/1llVOJdO3ta8C_jb5ANEhng" target="_blank" rel="noopener">https://pan.baidu.com/s/1llVOJdO3ta8C_jb5ANEhng</a><br>提取码：0kaf  复制这段内容后打开百度网盘手机App，操作更方便哦)的，应用主题可以直接将主题复制到 C:\Users\Administrator.PyCharm2017.2\config\colors  这个目录下，或者也可以导入进来，参考下图：<br><img src="https://i.loli.net/2019/03/31/5ca02be8683d1.gif" alt="code设置"></p>
 </li>
 </ul>
-<ol>
-<li>配置代码背景颜色<br>File -&gt; setting -&gt; Editor -&gt; Color Scheme -&gt; General -&gt; Text -&gt; Default text,然后自行选择颜色。<br><img src="http://pole6eku1.bkt.clouddn.com/codebgcolor.jpg" alt="代码背景色"></li>
-<li><p>显示代码行号<br>行号设置：File -&gt; setting -&gt; Editor -&gt; General -&gt; Appearance -&gt; show line numbers<br><img src="http://pole6eku1.bkt.clouddn.com/setlinenum.jpg" alt="行号设置"></p>
+<h4 id="2-直接使用-help-module-name"><a href="#2-直接使用-help-module-name" class="headerlink" title="2. 直接使用 help(module_name)"></a>2. 直接使用 help(module_name)</h4><ul>
+<li>使用help(module_name)时首先需要import该模块，有些教程中不进行导入而在模块名中加入引号help(‘module_name’)，这种方法可能会带来问题，大家可以用math模块测试，建议使用先导入再使用help()函数查询.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import math</span><br><span class="line">&gt;&gt;&gt; help(math)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>设置字体属性<br>File -&gt; setting -&gt; Editor -&gt; Color Scheme -&gt; Color Scheme Font,然后自行设置<br><img src="http://pole6eku1.bkt.clouddn.com/othersetting.jpg" alt="字体属性设置"></p>
+</ul>
+<h4 id="3-在python交互解释器下导入sys模块查看"><a href="#3-在python交互解释器下导入sys模块查看" class="headerlink" title="3. 在python交互解释器下导入sys模块查看"></a>3. 在python交互解释器下导入sys模块查看</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import sys</span><br><span class="line">&gt;&gt;&gt; sys.modules.keys()</span><br></pre></td></tr></table></figure>
+<h4 id="3-查看内建模块sys-bultin-modulenames"><a href="#3-查看内建模块sys-bultin-modulenames" class="headerlink" title="3. 查看内建模块sys.bultin_modulenames"></a>3. 查看内建模块sys.bultin_modulenames</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import sys</span><br><span class="line">&gt;&gt;&gt; sys.builtin_module_names</span><br><span class="line">(&apos;_ast&apos;, &apos;_bisect&apos;, &apos;_codecs&apos;, &apos;_codecs_cn&apos;, &apos;_codecs_hk&apos;, ... &apos;zlib&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="函数查询"><a href="#函数查询" class="headerlink" title="函数查询"></a>函数查询</h2><ol>
+<li><p>查看模块下所有函数dir(module_name)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dir(math)</span><br><span class="line">[&apos;__doc__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos;,...]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看模块下特定函数信息help(module_name.func_name)</p>
 </li>
 </ol>
-<p>如果还有喜欢的个性配置，还会继续更新。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; help(math.sin)</span><br><span class="line">Help on built-in function sin in module math:</span><br><span class="line">sin(...)</span><br><span class="line">    sin(x)</span><br><span class="line">    </span><br><span class="line">    Return the sine of x (measured in radians).</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>直接打印法:print(func_name.<strong>doc</strong>)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(print.__doc__)</span><br><span class="line">print(value, ..., sep=&apos; &apos;, end=&apos;\n&apos;, file=sys.stdout, flush=False)</span><br><span class="line">Prints the values to a stream, or to sys.stdout by default.</span><br><span class="line">Optional keyword arguments:</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt;print(math.__doc__)</span><br><span class="line">This module is always available.  It provides access to the</span><br><span class="line">mathematical functions defined by the C standard.</span><br></pre></td></tr></table></figure></li>
+</ol>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年04月08日 23:13</p>
-        <p>原始链接： <a class="post-url" href="/2019/04/09/Pycharm个性设置/" title="Pycharm个性设置">http://merlin153.com/2019/04/09/Pycharm个性设置/</a></p>
+        <p>最后更新： 2019年04月09日 22:42</p>
+        <p>原始链接： <a class="post-url" href="/2019/04/10/初学python-08-模块/" title="初学python(08--模块)">http://merlin153.com/2019/04/10/初学python-08-模块/</a></p>
         <footer>
             <a href="http://merlin153.com">
                 <img src="/images/logo.png" alt="merlin">
@@ -237,7 +242,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/09/Pycharm个性设置/&title=《Pycharm个性设置》 — Merlin's Blog&pic=/images/pycharmset.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/10/初学python-08-模块/&title=《初学python(08--模块)》 — Merlin's Blog&pic=/images/python.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -247,22 +252,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/09/Pycharm个性设置/&title=《Pycharm个性设置》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/10/初学python-08-模块/&title=《初学python(08--模块)》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/09/Pycharm个性设置/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/10/初学python-08-模块/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Pycharm个性设置》 — Merlin's Blog&url=http://merlin153.com/2019/04/09/Pycharm个性设置/&via=http://merlin153.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初学python(08--模块)》 — Merlin's Blog&url=http://merlin153.com/2019/04/10/初学python-08-模块/&via=http://merlin153.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/09/Pycharm个性设置/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/10/初学python-08-模块/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -272,7 +277,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/09/Pycharm个性设置/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/10/初学python-08-模块/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -297,26 +302,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置编辑窗口"><span class="post-toc-text">配置编辑窗口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置代码颜色"><span class="post-toc-text">配置代码颜色</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块的产生"><span class="post-toc-text">模块的产生</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块识别（内部和初始化）"><span class="post-toc-text">模块识别（内部和初始化）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块查看"><span class="post-toc-text">模块查看</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通用帮助函数help"><span class="post-toc-text">通用帮助函数help()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-直接使用-help-module-name"><span class="post-toc-text">2. 直接使用 help(module_name)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-在python交互解释器下导入sys模块查看"><span class="post-toc-text">3. 在python交互解释器下导入sys模块查看</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-查看内建模块sys-bultin-modulenames"><span class="post-toc-text">3. 查看内建模块sys.bultin_modulenames</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数查询"><span class="post-toc-text">函数查询</span></a></li>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/04/10/初学python(01--认识Linux)/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          初学python(01--认识Linux)
-        
-      </span>
-    </a>
   
-  
-    <a href="/2019/04/02/初学Python/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">初学Python(01--基础)</span>
+    <a href="/2019/04/10/初学python-07-函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">初学python(07--函数)</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -325,7 +320,7 @@
 
 
     
-        <div id="SOHUCS" sid="Pycharm个性设置"></div>
+        <div id="SOHUCS" sid="初学python-08-模块"></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyu9kxEBM';

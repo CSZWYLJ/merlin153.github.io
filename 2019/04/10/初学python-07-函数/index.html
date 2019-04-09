@@ -3,29 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Pycharm个性设置 | Merlin&#39;s Blog</title>
+  <title>初学python(07--函数) | Merlin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="merlin,merlin's Blog">
   
-  <meta name="description" content="早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实IDE也就是个能让你提高工作和管理的可视化软件，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的ID">
+  <meta name="description" content="定义函数 函数代码块以 def 关键词开头，后接函数标识符名称和圆括号 ()。 任何传入参数和自变量必须放在圆括号中间，圆括号之间可以用于定义参数。 函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。 函数内容以冒号起始，并且缩进。 return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。12def 函数名（参数列表）:	函数体">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pycharm个性设置">
-<meta property="og:url" content="http://merlin153.com/2019/04/09/Pycharm个性设置/index.html">
+<meta property="og:title" content="初学python(07--函数)">
+<meta property="og:url" content="http://merlin153.com/2019/04/10/初学python-07-函数/index.html">
 <meta property="og:site_name" content="Merlin&#39;s Blog">
-<meta property="og:description" content="早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实IDE也就是个能让你提高工作和管理的可视化软件，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的ID">
+<meta property="og:description" content="定义函数 函数代码块以 def 关键词开头，后接函数标识符名称和圆括号 ()。 任何传入参数和自变量必须放在圆括号中间，圆括号之间可以用于定义参数。 函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。 函数内容以冒号起始，并且缩进。 return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。12def 函数名（参数列表）:	函数体">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/03/30/5c9f89874ec4d.gif">
-<meta property="og:image" content="https://i.loli.net/2019/03/31/5ca02be8683d1.gif">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/codebgcolor.jpg">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/setlinenum.jpg">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/othersetting.jpg">
-<meta property="og:updated_time" content="2019-04-08T15:13:28.363Z">
+<meta property="og:updated_time" content="2019-04-09T14:38:34.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pycharm个性设置">
-<meta name="twitter:description" content="早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实IDE也就是个能让你提高工作和管理的可视化软件，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的ID">
-<meta name="twitter:image" content="https://i.loli.net/2019/03/30/5c9f89874ec4d.gif">
+<meta name="twitter:title" content="初学python(07--函数)">
+<meta name="twitter:description" content="定义函数 函数代码块以 def 关键词开头，后接函数标识符名称和圆括号 ()。 任何传入参数和自变量必须放在圆括号中间，圆括号之间可以用于定义参数。 函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。 函数内容以冒号起始，并且缩进。 return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。12def 函数名（参数列表）:	函数体">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -122,14 +116,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Pycharm个性设置" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-初学python-07-函数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Pycharm个性设置
+      初学python(07--函数)
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -142,7 +136,7 @@
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-04-08
+          <i class="fa fa-calendar"></i>  2019-04-09
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -158,29 +152,34 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>早期学语言的时候我一直都认为编辑器或者说IDE就是一种生产代码的软件，现在渐渐明白其实<strong>IDE也就是个能让你提高工作和管理的可视化软件</strong>，其本身对你工程并没有什么其他额外的作用。本质上，你所做的工程都是由一对对文件构成的，因为里面的调用关系才让软件看起来和“活”了一般。<br>说了工程的本质，目的也是希望各路大神不要把IDE作为一种依赖工具，根据自己需求使用就好。所以在这里简单记录下编辑Python工程的IDE软件–Pycharm（目前还在使用中，后面会不断更新自定义的使用操作……）。</p>
-<blockquote>
-<p>Pycharm是由Jetbrains开发的优秀的Python IDE。正如所有其它 JetBrains 集成开发环境一样，PyCharm 具有智能代码编辑器，能理解 Python 的特性并提供卓越的生产力推进工具：自动代码格式化、代码完成、重构、自动导入和一键代码导航等。这些功能在先进代码分析程序的支持下，使 PyCharm 成为 Python 专业开发人员和刚起步人员使用的有力工具。</p>
-</blockquote>
-<h2 id="配置编辑窗口"><a href="#配置编辑窗口" class="headerlink" title="配置编辑窗口"></a>配置编辑窗口</h2><h4 id="配置代码颜色"><a href="#配置代码颜色" class="headerlink" title="配置代码颜色"></a>配置代码颜色</h4><ul>
-<li><p><strong>方式一</strong>：如果不想自定义设置，可以参考这个<a href="https://blog.csdn.net/yuhaowow/article/details/78601808" target="_blank" rel="noopener">链接</a><br>，喜欢的话<a href="https://github.com/yuhaowow/GeneralConfig" target="_blank" rel="noopener">点击这里</a>下载Jetbrains的全家桶包，里面有两个jar包，配置Pycharm就选在Pycharm的jar包，选全家桶的也没关系，因为是jar包，所以直接导入，操作是（file-&gt;import setting-&gt;color scheme font(或者python)，不满意可以微微修改。（不想麻烦也可以在百度网盘下载（链接: 链接：<a href="https://pan.baidu.com/s/14En5fMSs4O7Nd6_9U1vMKw" target="_blank" rel="noopener">https://pan.baidu.com/s/14En5fMSs4O7Nd6_9U1vMKw</a><br>提取码：obhr  复制这段内容后打开百度网盘手机App，操作更方便哦））<br><img src="https://i.loli.net/2019/03/30/5c9f89874ec4d.gif" alt="修改代码颜色"></p>
-</li>
-<li><p><strong>方式二</strong> 可以去网上找一些Pycharm代码主题风格的配置文件(以 <strong>.icls</strong>格式结尾的)，也可以参考我这里(链接：<a href="https://pan.baidu.com/s/1llVOJdO3ta8C_jb5ANEhng" target="_blank" rel="noopener">https://pan.baidu.com/s/1llVOJdO3ta8C_jb5ANEhng</a><br>提取码：0kaf  复制这段内容后打开百度网盘手机App，操作更方便哦)的，应用主题可以直接将主题复制到 C:\Users\Administrator.PyCharm2017.2\config\colors  这个目录下，或者也可以导入进来，参考下图：<br><img src="https://i.loli.net/2019/03/31/5ca02be8683d1.gif" alt="code设置"></p>
+            <h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><ul>
+<li>函数代码块以 def 关键词开头，后接函数标识符名称和圆括号 ()。</li>
+<li>任何传入参数和自变量必须放在圆括号中间，圆括号之间可以用于定义参数。</li>
+<li>函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。</li>
+<li>函数内容以冒号起始，<strong>并且缩进</strong>。</li>
+<li>return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def 函数名（参数列表）:</span><br><span class="line">	函数体           #这里有缩进，一个Tab（4个空格）</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
-<li>配置代码背景颜色<br>File -&gt; setting -&gt; Editor -&gt; Color Scheme -&gt; General -&gt; Text -&gt; Default text,然后自行选择颜色。<br><img src="http://pole6eku1.bkt.clouddn.com/codebgcolor.jpg" alt="代码背景色"></li>
-<li><p>显示代码行号<br>行号设置：File -&gt; setting -&gt; Editor -&gt; General -&gt; Appearance -&gt; show line numbers<br><img src="http://pole6eku1.bkt.clouddn.com/setlinenum.jpg" alt="行号设置"></p>
-</li>
-<li><p>设置字体属性<br>File -&gt; setting -&gt; Editor -&gt; Color Scheme -&gt; Color Scheme Font,然后自行设置<br><img src="http://pole6eku1.bkt.clouddn.com/othersetting.jpg" alt="字体属性设置"></p>
+<h2 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h2><ol>
+<li>类型和变量的关系<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3]</span><br><span class="line">a=&quot;Runoob&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>如果还有喜欢的个性配置，还会继续更新。。。</p>
+<p>上述代码中，[1,2,3] 是 List 类型，”Runoob” 是 String 类型，而<strong>变量 a 是没有类型</strong>，她仅仅是一个对象的引用（一个指针），可以是指向 List 类型对象，也可以是指向 String 类型对象。</p>
+<ol start="2">
+<li>可变参数和不可变参数</li>
+<li>默认参数和不定长参数</li>
+</ol>
+<ul>
+<li>特殊的带两个*的参数，也就是 **var 这样的参数</li>
+</ul>
+<ol start="4">
+<li>全局变量和局部变量</li>
+</ol>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年04月08日 23:13</p>
-        <p>原始链接： <a class="post-url" href="/2019/04/09/Pycharm个性设置/" title="Pycharm个性设置">http://merlin153.com/2019/04/09/Pycharm个性设置/</a></p>
+        <p>最后更新： 2019年04月09日 22:38</p>
+        <p>原始链接： <a class="post-url" href="/2019/04/10/初学python-07-函数/" title="初学python(07--函数)">http://merlin153.com/2019/04/10/初学python-07-函数/</a></p>
         <footer>
             <a href="http://merlin153.com">
                 <img src="/images/logo.png" alt="merlin">
@@ -237,7 +236,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/09/Pycharm个性设置/&title=《Pycharm个性设置》 — Merlin's Blog&pic=/images/pycharmset.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/10/初学python-07-函数/&title=《初学python(07--函数)》 — Merlin's Blog&pic=/images/python.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -247,22 +246,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/09/Pycharm个性设置/&title=《Pycharm个性设置》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/10/初学python-07-函数/&title=《初学python(07--函数)》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/09/Pycharm个性设置/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/10/初学python-07-函数/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Pycharm个性设置》 — Merlin's Blog&url=http://merlin153.com/2019/04/09/Pycharm个性设置/&via=http://merlin153.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初学python(07--函数)》 — Merlin's Blog&url=http://merlin153.com/2019/04/10/初学python-07-函数/&via=http://merlin153.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/09/Pycharm个性设置/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/10/初学python-07-函数/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -272,7 +271,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/09/Pycharm个性设置/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/10/初学python-07-函数/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -297,26 +296,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置编辑窗口"><span class="post-toc-text">配置编辑窗口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置代码颜色"><span class="post-toc-text">配置代码颜色</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义函数"><span class="post-toc-text">定义函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数传参"><span class="post-toc-text">函数传参</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/04/10/初学python(01--认识Linux)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/10/初学python-08-模块/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          初学python(01--认识Linux)
+          初学python(08--模块)
         
       </span>
     </a>
   
   
-    <a href="/2019/04/02/初学Python/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">初学Python(01--基础)</span>
+    <a href="/2019/04/10/初学python-06-循环/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">初学python(06--循环)</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -325,7 +324,7 @@
 
 
     
-        <div id="SOHUCS" sid="Pycharm个性设置"></div>
+        <div id="SOHUCS" sid="初学python-07-函数"></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyu9kxEBM';

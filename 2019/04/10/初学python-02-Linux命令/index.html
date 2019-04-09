@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>初学python(02--Linux命令) | Merlin&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="merlin,merlin's Blog">
+  
+  <meta name="description" content="Linux命令格式：command [-options] [parameter1] （注：#皆为注释，不为代码内容，单词间有空格） 查看信息：ls12345ls --help    #查看Linux自带的帮助信息，&amp;quot;ls -h&amp;quot;不能生效ls -lah      #显示当前路径下的具体文件信息，l,a,h三个字母顺序无碍man ls       #查看ls使用细则  man是ma">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初学python(02--Linux命令)">
+<meta property="og:url" content="http://merlin153.com/2019/04/10/初学python-02-Linux命令/index.html">
+<meta property="og:site_name" content="Merlin&#39;s Blog">
+<meta property="og:description" content="Linux命令格式：command [-options] [parameter1] （注：#皆为注释，不为代码内容，单词间有空格） 查看信息：ls12345ls --help    #查看Linux自带的帮助信息，&amp;quot;ls -h&amp;quot;不能生效ls -lah      #显示当前路径下的具体文件信息，l,a,h三个字母顺序无碍man ls       #查看ls使用细则  man是ma">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-4e9ec59816d77786">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-82085ad946cb07c9">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/追加.jpg">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/管道1.jpg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-bdfc63f1c0c68b6e">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/grep通配符.jpg">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/grep搜寻结果.jpg">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/find搜索.jpg">
+<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/cp文件至目录.jpg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-bdf6735a0d0ae00d">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-745abee00b498920">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-8557b741475de30a">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-255138f0a6534f23">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7244053-bccf19ef4d40e4e9">
+<meta property="og:updated_time" content="2019-04-09T14:26:43.900Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初学python(02--Linux命令)">
+<meta name="twitter:description" content="Linux命令格式：command [-options] [parameter1] （注：#皆为注释，不为代码内容，单词间有空格） 查看信息：ls12345ls --help    #查看Linux自带的帮助信息，&amp;quot;ls -h&amp;quot;不能生效ls -lah      #显示当前路径下的具体文件信息，l,a,h三个字母顺序无碍man ls       #查看ls使用细则  man是ma">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7244053-4e9ec59816d77786">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Merlin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-book"></i>
+                        <span>Reading</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Merlin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个热爱 AI 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//merlin153.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/merlin153">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="CSDN" target="_blank" href="//https://blog.csdn.net/CYLYBYXH">
+                            <i class="fa fa-wrench fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//https://www.jianshu.com/u/e221c80bf14e">
+                            <i class="fa fa-bookmark fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="//https://juejin.im/user/5c8bb575e51d45360779b3e9">
+                            <i class="fa fa-viacoin fa-2x"></i></a>
+                    
+                        <a title="email" target="_blank" href="/merlin153@163.com">
+                            <i class="fa fa-envelope fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-初学python-02-Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      初学python(02--Linux命令)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Python学习/">Python学习</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-04-09
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>Linux命令格式：command [-options] [parameter1] （注：#皆为注释，不为代码内容，单词间有空格）</p>
+<h4 id="查看信息：ls"><a href="#查看信息：ls" class="headerlink" title="查看信息：ls"></a>查看信息：ls</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls --help    #查看Linux自带的帮助信息，&quot;ls -h&quot;不能生效</span><br><span class="line">ls -lah      #显示当前路径下的具体文件信息，l,a,h三个字母顺序无碍</span><br><span class="line"></span><br><span class="line">man ls       #查看ls使用细则  man是manual（手册）之意</span><br><span class="line">man print 2  #打印相关命令，1：标准命令  2：系统调用   3：库函数</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7244053-4e9ec59816d77786" alt="Linux_ls"></p>
+<h4 id="输出重定向：-gt-覆盖-gt-gt-追加"><a href="#输出重定向：-gt-覆盖-gt-gt-追加" class="headerlink" title="输出重定向：&gt;(覆盖),&gt;&gt;(追加)"></a>输出重定向：&gt;(覆盖),&gt;&gt;(追加)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls &gt; test.txt            #将ls出来的内容输入到test.txt文件中，覆盖原来的内容，若没有该文件则创建</span><br><span class="line">ls -alh &gt;&gt; test.txt      #将ls -alh出来的内容追加到test.txt中</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7244053-82085ad946cb07c9" alt="覆盖"></p>
+<p><img src="http://pole6eku1.bkt.clouddn.com/追加.jpg" alt="追加"></p>
+<h4 id="分屏和管道显示：-，more"><a href="#分屏和管道显示：-，more" class="headerlink" title="分屏和管道显示：|，more"></a>分屏和管道显示：|，more</h4><p>查看内容时，在信息过长无法在一屏上显示时，会出现快速滚屏，使得用户无法看清文件的内容，此时可以使用more命令，每次只显示一页，按下空格键可以显示下一页，按下q键退出显示，按下h键可以获取帮助。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -alh | more            #分屏显示</span><br><span class="line">cat test.txt | more       #管道输入输出</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pole6eku1.bkt.clouddn.com/管道1.jpg" alt="分屏显示"></p>
+<h4 id="目录创建和删除：mkdir"><a href="#目录创建和删除：mkdir" class="headerlink" title="目录创建和删除：mkdir"></a>目录创建和删除：mkdir</h4><p>目录的切换：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pwd     #查看当前所在路径</span><br><span class="line">cd ~    #切换到当前用户的主目录(/home/用户目录)</span><br><span class="line">cd .    #切换到当前目录</span><br><span class="line">cd ..   #切换到上级目录</span><br><span class="line">cd -    #切换到上次所在的目录</span><br></pre></td></tr></table></figure></p>
+<p>创建和删除目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir test   #创建test文件夹</span><br><span class="line">mkdir a/b/c  #递归创建a，b，c目录</span><br><span class="line"></span><br><span class="line">rmdir a    #删除a目录。注意：必须离开目录，并且目录必须为空目录，不然提示删除失败</span><br></pre></td></tr></table></figure>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p>常用参数：<br>-f：强制删除，忽略不存在的文件，无需提示；<br>-r:递归地删除目录下的内容，删除文件夹时必须加此参数<br>-i：可防止误删，用得少<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm test -rf  #删除文件，rf一般一起用。</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>建立链接文件<br>链接分为硬链接和软链接两种，硬链接相当于给源文件取了个别名，本质上还是一个文件，通过“ls -li”可查看两个链接文件的innode号，发现是一致的，<strong>在删除硬链接文件时，不会直接删除源文件，而是一个个删除，直至为0</strong>；而软链接却是相反的，查询可发现软链接的innode号不一致，而且生成软链接的数目不会增加，可以理解为建立软链接就是建立一个新文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln a alink        #给a文件创建**硬链接**alink</span><br><span class="line">ln -s b blink     #给b文件创建**软连接**blink</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/7244053-bdfc63f1c0c68b6e" alt="软硬链接"></p>
+<blockquote>
+<p>软硬链接，1列数字为innode</p>
+</blockquote>
+<h4 id="查看或者合并文件内容"><a href="#查看或者合并文件内容" class="headerlink" title="查看或者合并文件内容"></a>查看或者合并文件内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat text.txt                     #查看文件，将文件内容输出到显示屏上，区别于gedit编辑器</span><br><span class="line">cat 1.txt 2.txt &gt; 3.txt          #将1.txt,2.txt两个文件内容合并为3.txt（1.txt内容在前，2.txt内容追加其后）</span><br></pre></td></tr></table></figure>
+<h4 id="文本搜索-grep"><a href="#文本搜索-grep" class="headerlink" title="文本搜索:grep"></a>文本搜索:grep</h4><p>grep [-选项] ‘搜索内容串’文件名,选项有如下：<br>-v:显示不包含匹配文本的所有行（相当于求反）<br>-n:显示匹配行及行号<br>-i:忽略大小写<br>用grep查询文件内容时会经常用到通配符，常用通配符有如下：<br><img src="http://pole6eku1.bkt.clouddn.com/grep通配符.jpg" alt="常用通配符"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep  -n &apos;ke?&apos; 1.txt  #搜索以“ke?”3个字母结尾的行</span><br></pre></td></tr></table></figure>
+<p><img src="http://pole6eku1.bkt.clouddn.com/grep搜寻结果.jpg" alt="grep查询结果"></p>
+<h4 id="文件搜索：find"><a href="#文件搜索：find" class="headerlink" title="文件搜索：find"></a>文件搜索：find</h4><p>find命令功能非常强大，通常用来在特定的目录下搜索符合条件的文件，也可以用来搜索特定用户属主的文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find ./ -name test.sh        #查找当前目录下所有名为test.sh的文件</span><br><span class="line">find ./ -name &apos;*.sh&apos;         #查找当前目录下所有后缀为.sh的文件</span><br><span class="line">find ./ -name &quot;[A-Z]*&quot;       #查找当前目录下所有以大写字母开头的文件</span><br><span class="line">find ./ -perm 0777           #查找当前目录下权限为 777 的文件或目录</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pole6eku1.bkt.clouddn.com/find搜索.jpg" alt="find查询结果"></p>
+<h4 id="拷贝文档：cp"><a href="#拷贝文档：cp" class="headerlink" title="拷贝文档：cp"></a>拷贝文档：cp</h4><p>cp命令的功能是将给出的文件或目录复制到另一个文件或目录中，有如下几个参数：<br>-a：该选项通常在复制目录时使用，它保留链接、文件属性，并递归地复制目录，简单而言，保持文件原有属性。<br>-f：已经存在的目标文件而不提示<br>-i：交互式复制，在覆盖目标文件之前将给出提示要求用户确认<br>-r: 若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名。<br>-v：显示拷贝进度<br>使用规范：cp “源文件” “目标目录”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp test.txt testdir   #将text.txt文件拷贝到testdir目录下</span><br></pre></td></tr></table></figure></p>
+<h4 id="文件移动：mv"><a href="#文件移动：mv" class="headerlink" title="文件移动：mv"></a>文件移动：mv</h4><p>用户可以使用mv命令来移动文件或目录，也可以给文件或目录重命名，有如下几个参数<br>-f：禁止交互式操作，如有覆盖也不会给出提示<br>-i:确认交互方式操作，如果mv操作将导致对已存在的目标文件的覆盖，系统会询问是否重写，要求用户回答以避免误覆盖文件<br>-v:显示移动进度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv file1 file2      #将file1文件名改为file2</span><br><span class="line">mv file1 test/code  #将file1文件移动到test/code目录下</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pole6eku1.bkt.clouddn.com/cp文件至目录.jpg" alt="cp文件至目录"></p>
+<h4 id="归档管理：tar"><a href="#归档管理：tar" class="headerlink" title="归档管理：tar"></a>归档管理：tar</h4><p>tar是Unix/Linux中最常用的备份工具，此命令可以把一系列文件归档到一个大文件中，也可以把档案文件解开以恢复数据。tar命令很特殊，其参数前面可以使用“-”，也可以不使用。<br>tar使用格式： tar [参数] 打包文件名 文件<br>常用参数（注意：除了f需要放在参数的最后，其它参数的顺序任意。）：<br>-c:生成档案文件，创建打包文件<br>-v:列出归档解档的详细过程，显示进度<br>-f:指定档案文件名称，f后面一定是.tar文件，所以必须放选项最后<br>-t: 列出档案中包含的文件<br>-x:解开档案文件<br><img src="https://upload-images.jianshu.io/upload_images/7244053-bdf6735a0d0ae00d" alt="tar文件"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7244053-745abee00b498920" alt="解压指定路径"></p>
+<h4 id="文件解压缩：gzip"><a href="#文件解压缩：gzip" class="headerlink" title="文件解压缩：gzip"></a>文件解压缩：gzip</h4><p>tar与gzip命令结合使用实现文件打包、压缩。 tar只负责打包文件，但不压缩，用gzip压缩tar打包后的文件，其扩展名一般用xxxx.tar.gz。<br>使用格式：gzip [-选项] 被压缩文件<br>常用参数：<br>-d:解压<br>-f:压缩所有子目录<br>tar这个命令并没有压缩的功能，它只是一个打包的命令，但是在tar命令中增加一个选项(-z)可以调用gzip实现了一个压缩的功能，实行一个先打包后压缩的过程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gzip -r test.tar test.tar.gz   #或者写成gzip test.tar  ,两者都是压缩test.tar文件</span><br><span class="line">gzip -d test.tar.gz            #解压test.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>tar这个命令并没有压缩的功能，它只是一个打包的命令，但是在tar命令中增加一个选项(-z)可以调用gzip实现了一个压缩的功能，实行一个先打包后压缩的过程。<br>压缩用法：tar cvzf 压缩包包名 文件1 文件2 …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zcvf test.tar.gz 111.py 112.py *.py  #把 1.c 2.c 3.c 4.c 压缩成 test.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7244053-8557b741475de30a" alt="压缩文件"></p>
+<p>解压用法：tar zxvf 压缩包包名 -C 解压路径<br><img src="https://upload-images.jianshu.io/upload_images/7244053-255138f0a6534f23" alt="解压文件"></p>
+<h4 id="gzip解压"><a href="#gzip解压" class="headerlink" title="gzip解压"></a>gzip解压</h4><p>文件压缩解压：zip、unzip<br>通过zip压缩文件的目标文件不需要指定扩展名，默认扩展名为zip。<br>压缩文件：zip [-r] 目标文件(没有扩展名) 源文件<br>解压文件：unzip -d 解压后目录文件 压缩文件</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7244053-bccf19ef4d40e4e9" alt="zip解压压缩"></p>
+<h4 id="查看指令位置：-which"><a href="#查看指令位置：-which" class="headerlink" title="查看指令位置： which"></a>查看指令位置： which</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which ls    #查看ls指令的位置</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年04月09日 22:26</p>
+        <p>原始链接： <a class="post-url" href="/2019/04/10/初学python-02-Linux命令/" title="初学python(02--Linux命令)">http://merlin153.com/2019/04/10/初学python-02-Linux命令/</a></p>
+        <footer>
+            <a href="http://merlin153.com">
+                <img src="/images/logo.png" alt="merlin">
+                merlin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/10/初学python-02-Linux命令/&title=《初学python(02--Linux命令)》 — Merlin's Blog&pic=/images/python.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/10/初学python-02-Linux命令/&title=《初学python(02--Linux命令)》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/10/初学python-02-Linux命令/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初学python(02--Linux命令)》 — Merlin's Blog&url=http://merlin153.com/2019/04/10/初学python-02-Linux命令/&via=http://merlin153.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/10/初学python-02-Linux命令/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/10/初学python-02-Linux命令/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Python/" class="color2">Python</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看信息：ls"><span class="post-toc-text">查看信息：ls</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#输出重定向：-gt-覆盖-gt-gt-追加"><span class="post-toc-text">输出重定向：&gt;(覆盖),&gt;&gt;(追加)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分屏和管道显示：-，more"><span class="post-toc-text">分屏和管道显示：|，more</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#目录创建和删除：mkdir"><span class="post-toc-text">目录创建和删除：mkdir</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除文件"><span class="post-toc-text">删除文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看或者合并文件内容"><span class="post-toc-text">查看或者合并文件内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文本搜索-grep"><span class="post-toc-text">文本搜索:grep</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件搜索：find"><span class="post-toc-text">文件搜索：find</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#拷贝文档：cp"><span class="post-toc-text">拷贝文档：cp</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件移动：mv"><span class="post-toc-text">文件移动：mv</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#归档管理：tar"><span class="post-toc-text">归档管理：tar</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件解压缩：gzip"><span class="post-toc-text">文件解压缩：gzip</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gzip解压"><span class="post-toc-text">gzip解压</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看指令位置：-which"><span class="post-toc-text">查看指令位置： which</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/04/10/初学python-04-基本操作/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          初学python(04--基本操作)
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/04/10/初学python(01--认识Linux)/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">初学python(01--认识Linux)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="初学python-02-Linux命令"></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyu9kxEBM';
+        var conf = 'abf1ced8e3f36f007b43fd47d1214c91';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 merlin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://merlin153.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-book"></i><span>Reading</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i["DaoVoiceObject"]=r;
+      i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
+      a=s.createElement(o),m=s.getElementsByTagName(o)[0];
+      a.async=1;a.src=g;a.charset="utf-8";
+      m.parentNode.insertBefore(a,m)}
+    )(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/" + "a702189a" + ".js","daovoice")
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: "a702189a",
+      user_id: "NO_89757",
+      email: "",
+      name: "",
+      signed_up: 1449821660
+    });
+    daovoice('update');
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: ""
+    });
+    daovoice('update');
+  </script>
+
