@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/numtest.jpg">
 <meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/category1.gif">
-<meta property="og:updated_time" content="2019-04-09T14:34:00.741Z">
+<meta property="og:updated_time" content="2019-04-16T13:40:22.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学python(05--基本类型的使用)">
 <meta name="twitter:description" content="数据基本分类   类别 成员     不可变类型 Number(数字),String(字符串),Tuple(元组)   可变类型 List(),Dictionary(字典),Set(集合)    不可变类型1.数字Number 整型(Int) - 通常被称为是整型或整数，是正或负整数，不带小数点。Python3 整型是没有限制大小的，可以当作 Long 类型使用，所以 Python3 没有 Pyt">
@@ -178,15 +178,25 @@
 <li>浮点型(float) - 浮点型由整数部分与小数部分组成，浮点型也可以使用科学计数法表示（2.5e2 = 2.5 x 102 = 250）</li>
 <li>复数( (complex)) - 复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都是浮点型。</li>
 </ul>
-<p><strong>常用方法</strong>：<br>| 方法 | 描述 |<br>|–|–|<br>|abs()|返回数字的绝对值，如abs(-10) 返回 10 |<br>|fabs(x)|返回数字的绝对值，如math.fabs(-10) 返回10.0|<br>|pow(x, y)|x**y运算后的值|<br>|round(x,n)|返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。|</p>
-<p>随机函数<br>|方法|描述|<br>|-|-|<br>|choice(seq)|    从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。|<br>|random()|    随机生成下一个实数，它在[0,1)范围内。|<br>|seed([x])|改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。|</p>
+<p>访问：直接访问即可<br><strong>常用方法</strong>：<br>| 方法 | 描述 |<br>|–|–|<br>|abs()|返回数字的绝对值，如abs(-10) 返回 10 |<br>|fabs(x)|返回数字的绝对值，如math.fabs(-10) 返回10.0|<br>|pow(x, y)|x**y运算后的值|<br>|round(x,n)|返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。|</p>
+<hr>
+<p>随机函数<br>|方法|描述|<br>|–|–|<br>|choice(seq)|    从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。|<br>|random()|    随机生成下一个实数，它在[0,1)范围内。|<br>|seed([x])|改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。|</p>
 <h6 id="random函数的使用"><a href="#random函数的使用" class="headerlink" title="random函数的使用"></a>random函数的使用</h6><p>random():随机生成下一个实数，它在[0,1)范围内。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#encoding==utf-8</span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line">#random()方法</span><br><span class="line">print(&quot;输出一个random数1：&quot;,random.random())</span><br><span class="line">print(&quot;输出一个random数2：&quot;,random.random())</span><br><span class="line"></span><br><span class="line"># choice()方法</span><br><span class="line">print (&quot;从 range(100) 返回一个随机数 : &quot;,random.choice(range(100)))</span><br><span class="line">print (&quot;从列表中 [1, 2, 3, 5, 9]) 返回一个随机元素 : &quot;, random.choice([1, 2, 3, 5, 9]))</span><br><span class="line">print (&quot;从字符串中 &apos;Runoob&apos; 返回一个随机字符 : &quot;, random.choice(&apos;Runoob&apos;))</span><br><span class="line"></span><br><span class="line">#shuffle()方法</span><br><span class="line">list = [15,25,45,36]</span><br><span class="line">random.shuffle(list)</span><br><span class="line">print(&quot;随即列表结果:&quot;,list)</span><br><span class="line"></span><br><span class="line">random.shuffle(list)</span><br><span class="line">print(&quot;随即列表结果:&quot;,list)</span><br><span class="line"></span><br><span class="line">#randint(),返回整数</span><br><span class="line">print(&quot;随即一个整数（0-10）：&quot;,random.randint(0,10))</span><br><span class="line">print(&quot;随即一个整数（10-100）：&quot;,random.randint(10,100))</span><br><span class="line"></span><br><span class="line">#uniform()，返回的是浮点数</span><br><span class="line">print(&quot;随即一个范围数（1-10）：&quot;,random.uniform(1,10))</span><br><span class="line">print(&quot;随即一个范围数（20-100）：&quot;,random.uniform(20,100))</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://pole6eku1.bkt.clouddn.com/numtest.jpg" alt="数字测试"></p>
-<h4 id="2-字符串"><a href="#2-字符串" class="headerlink" title="2.字符串"></a>2.字符串</h4><p>[x:y]:截取字符串中的一部分，遵循左闭右开原则,结果是取不到尾标y的。（记忆从零计数开始，只到n-1）</p>
+<h6 id="range-函数的使用"><a href="#range-函数的使用" class="headerlink" title="range()函数的使用"></a>range()函数的使用</h6><p>range() 是 python 的内置函数，用于创建一个整数列表，一般用于 for 循环中。<br>help(range)帮助文档如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">range</span><span class="params">(object)</span></span></span><br><span class="line"><span class="class"> |  <span class="title">range</span><span class="params">(stop)</span> -&gt; range object</span></span><br><span class="line"><span class="class"> |  range(start, stop[, step]) -&gt; range object</span></span><br><span class="line"><span class="class"> |  </span></span><br><span class="line"><span class="class"> |  Return an object that produces a sequence of integers from start (inclusive)</span></span><br><span class="line"><span class="class"> |  to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.</span></span><br><span class="line"><span class="class"> |  start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.</span></span><br><span class="line"><span class="class"> |  These are exactly the valid indices for a list of 4 elements.</span></span><br><span class="line"><span class="class"> |  When step is given, it specifies the increment (or decrement).</span></span><br></pre></td></tr></table></figure></p>
+<p>使用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;range(10)        # 从 0 开始到 10</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; range(1, 11)     # 从 1 开始到 11</span><br><span class="line">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br><span class="line">&gt;&gt;&gt; range(0, 30, 5)  # 步长为 5</span><br><span class="line">[0, 5, 10, 15, 20, 25]</span><br><span class="line">&gt;&gt;&gt; range(0, 10, 3)  # 步长为 3</span><br><span class="line">[0, 3, 6, 9]</span><br><span class="line">&gt;&gt;&gt; range(0, -10, -1) # 负数</span><br><span class="line">[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="2-字符串"><a href="#2-字符串" class="headerlink" title="2.字符串"></a>2.字符串</h4><p>访问方式：直接访问</p>
+<p>[x:y]:截取字符串中的一部分，遵循左闭右开原则,结果是取不到尾标y的。（记忆从零计数开始，只到n-1）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">'hello world'</span></span><br><span class="line">print(s[:<span class="number">7</span>])       <span class="comment">#结果为：hello w    </span></span><br><span class="line">                   <span class="comment">#空格也计数在内，n个空格就是n个字符</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://pole6eku1.bkt.clouddn.com/category1.gif" alt="空白处理"><br>顺便区分下Python2和Python3的区别：<br>Python2：raw_input()是对输入的字符串不作处理，input()会对字符串做处理。<br>Python3：和Python2的raw_input()功能一致，对字符串不作处理</p>
-<h4 id="3-元组"><a href="#3-元组" class="headerlink" title="3.元组"></a>3.元组</h4><p>Python 的元组与列表类似，不同之处在于<strong>元组的元素不能修改</strong>。<br>注意：元组中只包含一个元素时，需要在元素后面添加逗号，否则括号会被当作运算符使用<br>|操作|意义|<br>|–|–|<br>|访问元素| 和列表访问一样，通过索引即可实现|<br>| 改变元素| 不允许改变元素，但是可以拼接元组，通过‘+’实现|<br>| 删除元素| 不允许删除元素，但是可以通过del语句删除整个元组|</p>
-<h2 id="可变类型"><a href="#可变类型" class="headerlink" title="可变类型"></a>可变类型</h2><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><table>
+<hr>
+<h4 id="3-元组"><a href="#3-元组" class="headerlink" title="3.元组"></a>3.元组</h4><p>访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tup1 = (&apos;physics&apos;, &apos;chemistry&apos;, 1997, 2000)</span><br><span class="line">tup2 = (1, 2, 3, 4, 5, 6, 7 )</span><br><span class="line"> </span><br><span class="line">print &quot;tup1[0]: &quot;, tup1[0]    #和列表一样，通过下角标访问</span><br><span class="line">print &quot;tup2[1:5]: &quot;, tup2[1:5]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">tup1[0]:  physics</span><br><span class="line">tup2[1:5]:  (2, 3, 4, 5)</span><br></pre></td></tr></table></figure></p>
+<p>Python 的元组与列表类似，不同之处在于<strong>元组的元素不能修改</strong>。<br>注意：元组中只包含一个元素时，需要在元素后面添加逗号，否则括号会被当作运算符使用<br>|操作|意义|<br>|–|–|<br>|访问元素| 和列表访问一样，通过索引即可实现|<br>| 改变元素| 不允许改变元素，但是可以拼接元组，通过‘+’实现|<br>| 删除元素| 不允许删除元素，但是可以通过del语句删除整个元组|</p>
+<hr>
+<h2 id="可变类型"><a href="#可变类型" class="headerlink" title="可变类型"></a>可变类型</h2><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">list1 = [&apos;physics&apos;, &apos;chemistry&apos;, 1997, 2000]</span><br><span class="line">list2 = [1, 2, 3, 4, 5, 6, 7 ]</span><br><span class="line"> </span><br><span class="line">print &quot;list1[0]: &quot;, list1[0]    #通过下角标(从0计数)访问，</span><br><span class="line">print &quot;list2[1:5]: &quot;, list2[1:5]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">list1[0]:  physics</span><br><span class="line">list2[1:5]:  [2, 3, 4, 5]</span><br></pre></td></tr></table></figure></p>
+<p>主要方法：</p>
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -242,12 +252,63 @@
 </tr>
 </tbody>
 </table>
-<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><p>字典是一种可变容器模型，且可存储任意类型对象，字典的每个<strong>键值</strong>(key=&gt;value)对用冒号“：”分割，每个对之间用逗号 “，” 分割，整个字典包括在花括号  “{}” 中。<br>注意：键必须是唯一的，但值则不必，值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组，创建时如果同一个键被赋值两次，后一个值会被记住。<br>|操作 | 意义 |<br>|—|—|<br>| 增、改| 都是定义新的键值，有则覆盖（即改变），无则增添|<br>| 删| 删除值：del dict[‘Name’]；清空字典：dict.clear() ；删除字典：del dict|</p>
-<h4 id="set集合"><a href="#set集合" class="headerlink" title="set集合"></a>set集合</h4><p>集合（set）是一个无序的不重复元素序列，可以使用大括号 { } 或者 set() 函数创建集合，<strong>创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典</strong><br>|操作|意义|<br>|—|—|<br>| 增| s.add(x)，增减元素x|<br>| 删| s.remove(x)，元素 x 从集合 s 中移除，如果元素不存在，则会发生错误。|<br>|删| s.discard(x)，删除元素x,即便<strong>元素不存在也不会发生错误</strong>|<br>|删|s.pop(),随机删除一个元素，返回该元素|<br>|其他|<strong>len(s)</strong>计算元素个数；s.clear()清空|</p>
+<hr>
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><p>字典是一种可变容器模型，且可存储任意类型对象，字典的每个<strong>键值</strong>(key=&gt;value)对用冒号“：”分割，每个对之间用逗号 “，” 分割，整个字典包括在花括号  “{}” 中。<br>注意：键必须是唯一的，但值则不必，值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组，创建时如果同一个键被赋值两次，后一个值会被记住。</p>
+<p>访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;&apos;Name&apos;: &apos;Zara&apos;, &apos;Age&apos;: 7, &apos;Class&apos;: &apos;First&apos;&#125;</span><br><span class="line"> </span><br><span class="line">print &quot;dict[&apos;Name&apos;]: &quot;, dict[&apos;Name&apos;]</span><br><span class="line">print &quot;dict[&apos;Age&apos;]: &quot;, dict[&apos;Age&apos;]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">dict[&apos;Name&apos;]:  Zara</span><br><span class="line">dict[&apos;Age&apos;]:  7</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增、改</td>
+<td>都是定义新的键值，有则覆盖（即改变），无则增添</td>
+</tr>
+<tr>
+<td>删</td>
+<td>删除值：del dict[‘Name’]；清空字典：dict.clear() ；删除字典：del dict</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="set集合"><a href="#set集合" class="headerlink" title="set集合"></a>set集合</h4><p>集合（set）是一个无序的不重复元素序列，可以使用大括号 { } 或者 set() 函数创建集合，<strong>创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典</strong><br>访问：集合不能直接访问，可以使用 for 循环访问。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = set(&apos;dsadfas&apos;)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&#123;&apos;d&apos;, &apos;a&apos;, &apos;f&apos;, &apos;s&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; a[2]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: &apos;set&apos; object does not support indexing</span><br><span class="line">&gt;&gt;&gt; for i in a:</span><br><span class="line">...    print(i)</span><br><span class="line">...</span><br><span class="line">d</span><br><span class="line">a</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增</td>
+<td>s.add(x)，增减元素x</td>
+</tr>
+<tr>
+<td>删</td>
+<td>s.remove(x)，元素 x 从集合 s 中移除，如果元素不存在，则会发生错误。</td>
+</tr>
+<tr>
+<td>删</td>
+<td>s.discard(x)，删除元素x,即便<strong>元素不存在也不会发生错误</strong></td>
+</tr>
+<tr>
+<td>删</td>
+<td>s.pop(),随机删除一个元素，返回该元素</td>
+</tr>
+<tr>
+<td>其他</td>
+<td><strong>len(s)</strong>计算元素个数；s.clear()清空</td>
+</tr>
+</tbody>
+</table>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年04月09日 22:34</p>
+        <p>最后更新： 2019年04月16日 21:40</p>
         <p>原始链接： <a class="post-url" href="/2019/04/10/初学python-05-基本类型的使用/" title="初学python(05--基本类型的使用)">http://merlin153.com/2019/04/10/初学python-05-基本类型的使用/</a></p>
         <footer>
             <a href="http://merlin153.com">
@@ -365,7 +426,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据基本分类"><span class="post-toc-text">数据基本分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不可变类型"><span class="post-toc-text">不可变类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-数字Number"><span class="post-toc-text">1.数字Number</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#random函数的使用"><span class="post-toc-text">random函数的使用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-字符串"><span class="post-toc-text">2.字符串</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-元组"><span class="post-toc-text">3.元组</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可变类型"><span class="post-toc-text">可变类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列表"><span class="post-toc-text">列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字典"><span class="post-toc-text">字典</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#set集合"><span class="post-toc-text">set集合</span></a></li></ol></li>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据基本分类"><span class="post-toc-text">数据基本分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不可变类型"><span class="post-toc-text">不可变类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-数字Number"><span class="post-toc-text">1.数字Number</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#random函数的使用"><span class="post-toc-text">random函数的使用</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#range-函数的使用"><span class="post-toc-text">range()函数的使用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-字符串"><span class="post-toc-text">2.字符串</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-元组"><span class="post-toc-text">3.元组</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可变类型"><span class="post-toc-text">可变类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列表"><span class="post-toc-text">列表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字典"><span class="post-toc-text">字典</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#set集合"><span class="post-toc-text">set集合</span></a></li></ol></li>
         </nav>
     </aside>
     
@@ -455,10 +516,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a>
+            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -491,7 +552,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
         </div>
     </div>
 </div>

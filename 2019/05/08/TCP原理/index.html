@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>TCP原理 | Merlin&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="merlin,merlin's Blog">
+  
+  <meta name="description" content="TCP/IP 简介TCP/IP 起源于 60 年代末美国政府资助的一个分组交换网络研究项目，到 90 年代已发展成为计算机之间最常应用的组网形式。 计算机结构分层首先熟悉下计算机网络体系的结构分层，由图可以看出，在OSI参考模型下更注重”通信协议必要的功能是什么”，而TCP/IP强调”在计算机上实现协议应该开发哪种协议”，如图： 每一层负责的功能：  链路层(亦叫数据链路层或网络接口层)：通常包括">
+<meta name="keywords" content="TCP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP原理">
+<meta property="og:url" content="http://merlin153.com/2019/05/08/TCP原理/index.html">
+<meta property="og:site_name" content="Merlin&#39;s Blog">
+<meta property="og:description" content="TCP/IP 简介TCP/IP 起源于 60 年代末美国政府资助的一个分组交换网络研究项目，到 90 年代已发展成为计算机之间最常应用的组网形式。 计算机结构分层首先熟悉下计算机网络体系的结构分层，由图可以看出，在OSI参考模型下更注重”通信协议必要的功能是什么”，而TCP/IP强调”在计算机上实现协议应该开发哪种协议”，如图： 每一层负责的功能：  链路层(亦叫数据链路层或网络接口层)：通常包括">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/TCPIP.jpg">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/protocol.jpg">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/three.png">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/four.png">
+<meta property="og:updated_time" content="2019-05-08T02:53:27.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TCP原理">
+<meta name="twitter:description" content="TCP/IP 简介TCP/IP 起源于 60 年代末美国政府资助的一个分组交换网络研究项目，到 90 年代已发展成为计算机之间最常应用的组网形式。 计算机结构分层首先熟悉下计算机网络体系的结构分层，由图可以看出，在OSI参考模型下更注重”通信协议必要的功能是什么”，而TCP/IP强调”在计算机上实现协议应该开发哪种协议”，如图： 每一层负责的功能：  链路层(亦叫数据链路层或网络接口层)：通常包括">
+<meta name="twitter:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/TCPIP.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Merlin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-book"></i>
+                        <span>Reading</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Merlin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个热爱 AI 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//merlin153.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/merlin153">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="CSDN" target="_blank" href="//https://blog.csdn.net/CYLYBYXH">
+                            <i class="fa fa-wrench fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//https://www.jianshu.com/u/e221c80bf14e">
+                            <i class="fa fa-bookmark fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="//https://juejin.im/user/5c8bb575e51d45360779b3e9">
+                            <i class="fa fa-viacoin fa-2x"></i></a>
+                    
+                        <a title="email" target="_blank" href="/merlin153@163.com">
+                            <i class="fa fa-envelope fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-TCP原理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      TCP原理
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/TCP原理/">TCP原理</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-05-08
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="TCP-IP-简介"><a href="#TCP-IP-简介" class="headerlink" title="TCP/IP 简介"></a>TCP/IP 简介</h2><p>TCP/IP 起源于 60 年代末美国政府资助的一个分组交换网络研究项目，到 90 年代已发展成为计算机之间最常应用的组网形式。</p>
+<h4 id="计算机结构分层"><a href="#计算机结构分层" class="headerlink" title="计算机结构分层"></a>计算机结构分层</h4><p>首先熟悉下计算机网络体系的结构分层，由图可以看出，在OSI参考模型下更注重”通信协议必要的功能是什么”，而TCP/IP强调”在计算机上实现协议应该开发哪种协议”，如图：<br><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/TCPIP.jpg" alt="计算机网络体系结构分层"></p>
+<p>每一层负责的功能：</p>
+<ul>
+<li>链路层(亦叫数据链路层或网络接口层)：通常包括操作系统中的设备驱动程序或计算机中对应的网络接口卡，它们一起处理与电缆(或其他传输媒介)的物理接口细节；</li>
+<li>网络层(亦叫互联网层)：负责处理分组在网络中的活动，例如分组的选路。网络层协议包括IP协议（网际协议），ICMP协议（Internet互联网控制报文协议），以及IGMP协议（Internet组管理协议）。</li>
+<li>运输层：为两台主机上的应用程序提供端到端的通信。</li>
+<li>应用层：负责处理特定的应用程序细节<h4 id="TCP-IP-包含的内容"><a href="#TCP-IP-包含的内容" class="headerlink" title="TCP/IP 包含的内容"></a>TCP/IP 包含的内容</h4></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TCP/IP 是 IP 通信时所要用到的协议群的统称。往细里说，IP 或 ICMP、TCP 或 UDP、TELNET 或 FTP、以及 HTTP 等都属于 TCP/IP 协议。他们与 TCP 或 IP 的关系紧密，是互联网必不可少的组成部分。TCP/IP 一词泛指这些协议，因此，有时也称 TCP/IP 为网际协议群。<br><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/protocol.jpg" alt="协议群"></p>
+<h2 id="TCP-和-UDP-比较"><a href="#TCP-和-UDP-比较" class="headerlink" title="TCP 和 UDP 比较"></a>TCP 和 UDP 比较</h2><h4 id="TCP特性"><a href="#TCP特性" class="headerlink" title="TCP特性"></a>TCP特性</h4><ul>
+<li>TCP 是一种<strong>面向连接的、可靠的</strong>字节流服务，也就是说只有在确认有通信对端存在时，才会发送数据；</li>
+<li>TCP仅仅是两方的彼此通信，广播和多播不能用于TCP；</li>
+<li>TCP使用校验和，确认和重传机制来保证可靠传输；</li>
+<li>TCP给数据分节进行排序，并使用累积确认以保证数据的顺序不变和非重复；</li>
+<li>TCP 使用滑动窗口机制来实现流量控制，通过动态改变窗口大小的方式进行。</li>
+</ul>
+<h4 id="UDP-特性"><a href="#UDP-特性" class="headerlink" title="UDP 特性"></a>UDP 特性</h4><p>提到TCP，就不得不说到 UDP，和 TCP 相比，UDP 具有如下特性：</p>
+<ul>
+<li>UDP 是利用 IP 提供<strong>面向无连接</strong>的，UDP 客户和服务器之前不必存在长期的关系。UDP 发送数据报之前也不需要经过握手创建连接的过程；</li>
+<li>UDP 数据报是有长度的。每个 UDP 数据报都有长度，如果一个数据报正确地到达目的地，那么该数据报的长度将随数据一起传递给接收方。而 TCP 是一个字节流协议，没有任何（协议上的）记录边界；</li>
+<li>UDP 缺乏可靠性。UDP 本身不提供确认，序列号，超时重传等机制。UDP 数据报可能在网络中被复制，被重新排序。即 UDP 不保证数据报会到达其最终目的地，也不保证各个数据报的先后顺序，也不保证每个数据报只到达一次，传输途中出现丢包，UDP 也不负责重发；</li>
+<li>另外UDP支持多播和广播。</li>
+</ul>
+<h6 id="UDP-使用"><a href="#UDP-使用" class="headerlink" title="UDP 使用"></a>UDP 使用</h6><p>UDP 常用于一下几个方面：<br>  1.包总量较少的通信（DNS、SNMP等）；<br>  2.视频、音频等多媒体通信（即时通信）；<br>  3.限定于 LAN 等特定网络中的应用通信；4.广播通信（广播、多播）。</p>
+<p>注意：TCP 和 UDP 的优缺点无法简单地、绝对地去做比较：TCP 用于在传输层有必要实现可靠传输的情况；而在一方面，UDP 主要用于那些对高速传输和实时性有较高要求的通信或广播通信。TCP 和 UDP 应该根据应用的目的按需使用。</p>
+<h2 id="TCP-的通信"><a href="#TCP-的通信" class="headerlink" title="TCP 的通信"></a>TCP 的通信</h2><h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><table>
+<thead>
+<tr>
+<th>握手</th>
+<th>书面意义</th>
+<th>目的意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一次握手</td>
+<td>客户端将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给服务器端，客户端进入SYN_SENT状态，等待服务器端确认。</td>
+<td>服务端得出结论:客户端的发信和服务端的收信是正常的</td>
+</tr>
+<tr>
+<td>第二次握手</td>
+<td>服务器端收到数据包后由标志位SYN=1知道客户端请求建立连接，服务器端将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送给客户端以确认连接请求，服务器端进入SYN_RCVD状态。</td>
+<td>服务端发包，客户端收到了。这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常</td>
+</tr>
+<tr>
+<td>第三次握手</td>
+<td>客户端收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给服务器端，服务器端检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，客户端和服务器端进入ESTABLISHED状态，完成三次握手，随后客户端与服务器端之间可以开始传输数据了</td>
+<td>客户端发包，服务端收到了。这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/three.png" alt="三次握手"></p>
+<h6 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h6><ol>
+<li>(ISN)是固定的吗？</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三次握手的一个重要功能是客户端和服务端交换ISN(Initial Sequence Number), 以便让对方知道接下来接收数据的时候如何按序列号组装数据。如果ISN是固定的，攻击者很容易猜出后续的确认号，因此 ISN 是动态生成的。</p>
+<ol start="2">
+<li>那么为什么TCP客户端最后还要发送一次确认呢？是为了解决什么问题呢？</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原因：建立三次握手主要是因为A发送了再一次的确认，那么A为什么会再确认一次呢，主要是为了防止已失效的连接请求报文段又突然传送给B，从而产生了错误。所谓“已失效的连接请求报文”是这样产生的：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正常情况下，A发出连接请求，但是因为连接报文请求丢失而未收到确认，于是A再重传一次连接请求，后来收到了请求，并收到了确认，建立了连接，数据传输完毕后，就释放链接，A共发送了两次连接请求报文段，其中第一个丢失，第二个到达了B，没有“已失效的连接请求报文段”，但是还有异常情况下，<strong>A发送的请求报文连接段并没有丢失，而是在某个网络节点滞留较长时间，以致延误到请求释放后的某个时间到达B，本来是一个早已失效的报文段，但是B收到了此失效连接请求报文段后，就误以为A又重新发送的连接请求报文段</strong>，并发送确认报文段给A，同意建立连接，如果没有三次握手，那么B发送确认后，连接就建立了，而此时A没有发送建立连接的请求报文段，于是不理会B的确认，也不会给B发送数据，而B却一直等待A发送数据，因此B的许多资源就浪费了，采用三次握手的方式就可以防止这种事情发生，例如刚刚，A不理会B，就不会给B发送确认，B收不到A的确认，就知道A不要求建立连接，就不会白白浪费资源。</p>
+<ol start="3">
+<li>三次握手过程中可以携带数据吗？</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;很多人可能会认为三次握手都不能携带数据，其实第三次握手的时候，是可以携带数据的。也就是说，第一次、第二次握手不可以携带数据，而第三次握手是可以携带数据的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;假如第一次握手可以携带数据的话，如果有人要恶意攻击服务器，那他每次都在第一次握手中的 SYN 报文中放入大量的数据，因为攻击者根本就不理服务器的接收、发送能力是否正常，然后疯狂着重复发 SYN 报文的话，这会让服务器花费很多时间、内存空间来接收这些报文。也就是说，第一次握手可以放数据的话，其中一个简单的原因就是会让服务器更加容易受到攻击了。而对于第三次的话，此时客户端已经处于 established 状态，也就是说，对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以能携带数据页没啥毛病。</p>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><table>
+<thead>
+<tr>
+<th>挥手</th>
+<th>书面意义</th>
+<th>目的意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一次挥手</td>
+<td>客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。</td>
+<td>我客户端没数据要发给你了，如果你服务器端还有数据没有发送完成，可以继续发送数据</td>
+</tr>
+<tr>
+<td>第二次挥手</td>
+<td>服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。</td>
+<td>服务器意图告诉客户端，你的请求我收到了，但是我还没准备好，请继续等我的消息</td>
+</tr>
+<tr>
+<td>第三次挥手</td>
+<td>客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。</td>
+<td>告诉客户端，好了，我这边数据发完了，准备好关闭连接了</td>
+</tr>
+<tr>
+<td>第四次挥手</td>
+<td>客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。服务器只要收到了客户端发出的确认，立即进入CLOSED状态。</td>
+<td>客户端收到FIN=N报文后，就知道可以关闭连接了，但是他还是不相信网络，怕服务器端不知道要关闭，所以发送ack=N+1后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。服务器端收到ACK后，就知道可以断开连接了。客户端等待了2MSL后依然没有收到回复，则证明服务器端已正常关闭，那好，我客户端也可以关闭连接了。最终完成了四次握手。</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/four.png" alt="四次挥手"></p>
+<h6 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h6><ol>
+<li>为什么客户端最后还要等待2MSL(常问)？</li>
+</ol>
+<p>MSL（Maximum Segment Lifetime），TCP允许不同的实现可以设置不同的MSL值。</p>
+<p>i. 保证客户端发送的最后一个ACK报文能够到达服务器，因为这个ACK报文可能丢失，站在服务器的角度看来，我已经发送了FIN+ACK报文请求断开了，客户端还没有给我回应，应该是我发送的请求断开报文它没有收到。于是服务器会重新发 FIN 报文给客户端，客户端再次收到 FIN 报文之后，就知道之前的 ACK 报文丢失了，然后再次发送 ACK 报文。至于 TIME_WAIT 持续的时间至少是一个报文的来回时间。一般会设置一个计时，如果过了这个计时没有再次收到 FIN 报文，则代表对方成功就是 ACK 报文，此时处于 CLOSED 状态。</p>
+<p>ii. 防止类似与“三次握手”中提到了的“已经失效的连接请求报文段”出现在本连接中。客户端发送完最后一个确认报文后，在这个2MSL时间中，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。这样新的连接中不会出现旧连接的请求报文。</p>
+<ol start="2">
+<li>为什么建立连接是三次握手，关闭连接确是四次挥手呢？</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。</p>
+<ol start="3">
+<li>如果已经建立了连接，但是客户端突然出现故障了怎么办？</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75s发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。</p>
+<ol start="4">
+<li>为什么不能用两次握手进行连接？</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3次握手完成两个重要的功能，既要双方做好发送数据的准备工作(双方都知道彼此已准备好)，也要允许双方就初始序列号进行协商，这个序列号在握手过程中被发送和确认。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在把三次握手改成仅需要两次握手，死锁是可能发生的。假定A向B发送一个连接请求，由于一些原因，导致A发出的连接请求在一个网络节点逗留了比较多的时间。此时A会将此连接请求作为无效处理 又重新向B发起了一次新的连接请求，B正常收到此连接请求后建立了连接，数据传输完成后释放了连接。如果此时A发出的第一次请求又到达了B，B会以为A又发起了一次连接请求，如果是两次握手：此时连接就建立了，B会一直等待A发送数据，从而白白浪费B的资源。 如果是三次握手：由于A没有发起连接请求，也就不会理会B的连接响应，B没有收到A的确认连接，就会关闭掉本次连接。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年05月08日 10:53</p>
+        <p>原始链接： <a class="post-url" href="/2019/05/08/TCP原理/" title="TCP原理">http://merlin153.com/2019/05/08/TCP原理/</a></p>
+        <footer>
+            <a href="http://merlin153.com">
+                <img src="/images/logo.png" alt="merlin">
+                merlin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/05/08/TCP原理/&title=《TCP原理》 — Merlin's Blog&pic=/images/tcp.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/05/08/TCP原理/&title=《TCP原理》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/05/08/TCP原理/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TCP原理》 — Merlin's Blog&url=http://merlin153.com/2019/05/08/TCP原理/&via=http://merlin153.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/05/08/TCP原理/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/05/08/TCP原理/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/TCP/" class="color4">TCP</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-IP-简介"><span class="post-toc-text">TCP/IP 简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#计算机结构分层"><span class="post-toc-text">计算机结构分层</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#TCP-IP-包含的内容"><span class="post-toc-text">TCP/IP 包含的内容</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-和-UDP-比较"><span class="post-toc-text">TCP 和 UDP 比较</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#TCP特性"><span class="post-toc-text">TCP特性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UDP-特性"><span class="post-toc-text">UDP 特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#UDP-使用"><span class="post-toc-text">UDP 使用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-的通信"><span class="post-toc-text">TCP 的通信</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三次握手"><span class="post-toc-text">三次握手</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#问题"><span class="post-toc-text">问题</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四次挥手"><span class="post-toc-text">四次挥手</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#问题-1"><span class="post-toc-text">问题</span></a></li></ol></li>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/11/虚拟内存和物理内存/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">虚拟内存和物理内存</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="TCP原理"></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyu9kxEBM';
+        var conf = 'abf1ced8e3f36f007b43fd47d1214c91';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 merlin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://merlin153.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-book"></i><span>Reading</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i["DaoVoiceObject"]=r;
+      i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
+      a=s.createElement(o),m=s.getElementsByTagName(o)[0];
+      a.async=1;a.src=g;a.charset="utf-8";
+      m.parentNode.insertBefore(a,m)}
+    )(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/" + "a702189a" + ".js","daovoice")
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: "a702189a",
+      user_id: "NO_89757",
+      email: "",
+      name: "",
+      signed_up: 1449821660
+    });
+    daovoice('update');
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: ""
+    });
+    daovoice('update');
+  </script>
+

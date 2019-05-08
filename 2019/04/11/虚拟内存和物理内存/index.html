@@ -3,23 +3,22 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>初学python(06--循环) | Merlin&#39;s Blog</title>
+  <title>虚拟内存和物理内存 | Merlin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="merlin,merlin's Blog">
   
-  <meta name="description" content="while循环语法：12while 判断条件：    语句       #这里的句头有一个 Tab 空格，Tab=4  无限循环12while True:    pass   这个语句在我个人看来，就是只要当前程序的这个语句之前能运行，那么这个语句就会执行，还句话说就是永为真，程序执行后按 Ctrl+c 可结束程序。  while 循环使用 else 语句123456count = 0while">
-<meta name="keywords" content="Python">
+  <meta name="description" content="一个热爱 AI 的技术博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初学python(06--循环)">
-<meta property="og:url" content="http://merlin153.com/2019/04/10/初学python-06-循环/index.html">
+<meta property="og:title" content="虚拟内存和物理内存">
+<meta property="og:url" content="http://merlin153.com/2019/04/11/虚拟内存和物理内存/index.html">
 <meta property="og:site_name" content="Merlin&#39;s Blog">
-<meta property="og:description" content="while循环语法：12while 判断条件：    语句       #这里的句头有一个 Tab 空格，Tab=4  无限循环12while True:    pass   这个语句在我个人看来，就是只要当前程序的这个语句之前能运行，那么这个语句就会执行，还句话说就是永为真，程序执行后按 Ctrl+c 可结束程序。  while 循环使用 else 语句123456count = 0while">
+<meta property="og:description" content="一个热爱 AI 的技术博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T14:36:45.701Z">
+<meta property="og:updated_time" content="2019-04-11T02:54:24.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初学python(06--循环)">
-<meta name="twitter:description" content="while循环语法：12while 判断条件：    语句       #这里的句头有一个 Tab 空格，Tab=4  无限循环12while True:    pass   这个语句在我个人看来，就是只要当前程序的这个语句之前能运行，那么这个语句就会执行，还句话说就是永为真，程序执行后按 Ctrl+c 可结束程序。  while 循环使用 else 语句123456count = 0while">
+<meta name="twitter:title" content="虚拟内存和物理内存">
+<meta name="twitter:description" content="一个热爱 AI 的技术博客">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -116,27 +115,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-初学python-06-循环" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-虚拟内存和物理内存" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      初学python(06--循环)
+      虚拟内存和物理内存
     </h1>
     <div class="post-title-bar">
       <ul>
           
-              <li>
-                  <i class="fa fa-book"></i>
-                  
-                      <a href="/categories/Python学习/">Python学习</a>
-                  
-              </li>
-          
         <li>
-          <i class="fa fa-calendar"></i>  2019-04-09
+          <i class="fa fa-calendar"></i>  2019-04-11
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -152,29 +144,11 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while 判断条件：</span><br><span class="line">    语句       #这里的句头有一个 Tab 空格，Tab=4</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>无限循环<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这个语句在我个人看来，就是只要当前程序的这个语句之前能运行，那么这个语句就会执行，还句话说就是永为真，程序执行后按 Ctrl+c 可结束程序。</p>
-<ul>
-<li>while 循环使用 else 语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">count = 0</span><br><span class="line">while count &lt; 5:</span><br><span class="line">   print (count, &quot; 小于 5&quot;)</span><br><span class="line">   count = count + 1</span><br><span class="line">else:</span><br><span class="line">   print (count, &quot; 大于或等于 5&quot;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这个语句很少用，因为很多时候这种语句是可以用 for 循环代替的，但是这条语句表达的思想却没有问题</p>
-<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环可以遍历任何序列的项目，如一个列表或者一个字符串。<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for tempVar in seq:             #tempVar是临时变量，相当于C、java中的 i</span><br><span class="line">    pass                        #seq是序列，可以为列表、元组、字典等等</span><br><span class="line">else:</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>range函数<br>如果你需要遍历数字序列，可以使用内置range()函数。它会生成数列。例如：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#例1：</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    print(i)          <span class="comment">#结果是列项输出0,1,2,3,4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#例2：</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">7</span>,<span class="number">13</span>) :</span><br><span class="line">    print(i)          <span class="comment">#结果是列项输出7,8,9,10,11,12,右侧边界值取不到 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#例3：</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">10</span>, <span class="number">3</span>) :</span><br><span class="line">    print(i)          <span class="comment">#结果：0,3,6,9</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#例4</span></span><br><span class="line">a = [<span class="string">'Google'</span>, <span class="string">'Baidu'</span>, <span class="string">'Runoob'</span>, <span class="string">'Taobao'</span>, <span class="string">'QQ'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):    <span class="comment">#可以结合range()和len()函数以遍历一个序列的索引</span></span><br><span class="line">    print(i, a[i])</span><br></pre></td></tr></table></figure>
-<h1 id="break"><a href="#break" class="headerlink" title="break"></a>break</h1><p>因为本人接触过C语言、C++和java语言，所以比较熟悉，就不多说了，功能就是<strong>结束整个循环，并且后面的语句不执行</strong>。</p>
-<h1 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h1><p>continue就是<strong>跳出当前循环，执行下次循环</strong></p>
-
+            
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年04月09日 22:36</p>
-        <p>原始链接： <a class="post-url" href="/2019/04/10/初学python-06-循环/" title="初学python(06--循环)">http://merlin153.com/2019/04/10/初学python-06-循环/</a></p>
+        <p>最后更新： 2019年04月11日 10:54</p>
+        <p>原始链接： <a class="post-url" href="/2019/04/11/虚拟内存和物理内存/" title="虚拟内存和物理内存">http://merlin153.com/2019/04/11/虚拟内存和物理内存/</a></p>
         <footer>
             <a href="http://merlin153.com">
                 <img src="/images/logo.png" alt="merlin">
@@ -231,7 +205,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/10/初学python-06-循环/&title=《初学python(06--循环)》 — Merlin's Blog&pic=/images/python.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/&title=《虚拟内存和物理内存》 — Merlin's Blog&pic=http://merlin153.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -241,22 +215,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/10/初学python-06-循环/&title=《初学python(06--循环)》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/&title=《虚拟内存和物理内存》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/10/初学python-06-循环/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/11/虚拟内存和物理内存/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初学python(06--循环)》 — Merlin's Blog&url=http://merlin153.com/2019/04/10/初学python-06-循环/&via=http://merlin153.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟内存和物理内存》 — Merlin's Blog&url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/&via=http://merlin153.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/10/初学python-06-循环/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -266,7 +240,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/10/初学python-06-循环/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/11/虚拟内存和物理内存/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -275,13 +249,6 @@
         <ul class="article-footer-menu">
             
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Python/" class="color2">Python</a>
-      
-  </li>
-
         </ul>
         
     </footer>
@@ -289,28 +256,22 @@
 </article>
 
 
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#while循环"><span class="post-toc-text">while循环</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#for循环"><span class="post-toc-text">for循环</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#break"><span class="post-toc-text">break</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#continue"><span class="post-toc-text">continue</span></a>
-        </li></nav>
-    </aside>
-    
 
 <nav id="article-nav">
   
-    <a href="/2019/04/10/初学python-07-函数/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/08/TCP原理/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          初学python(07--函数)
+          TCP原理
         
       </span>
     </a>
   
   
-    <a href="/2019/04/10/初学python-05-基本类型的使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">初学python(05--基本类型的使用)</span>
+    <a href="/2019/04/10/Git常用语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Git常用语法</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -319,7 +280,7 @@
 
 
     
-        <div id="SOHUCS" sid="初学python-06-循环"></div>
+        <div id="SOHUCS" sid="虚拟内存和物理内存"></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyu9kxEBM';
