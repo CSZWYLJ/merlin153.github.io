@@ -3,25 +3,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>虚拟内存和物理内存 | Merlin&#39;s Blog</title>
+  <title>计算机小数 | Merlin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="merlin,merlin's Blog">
   
-  <meta name="description" content="问题来源在很久以前，还没有虚拟内存概念的时候，程序寻址用的都是物理地址。程序能寻址的范围是有限的，这取决于CPU的地址线条数。比如在32位平台下，寻址的范围是2^32也就是4G。并且这是固定的，如果没有虚拟内存，且每次开启一个进程都给4G的物理内存，就可能会出现很多以下问题：  因为物理内存时有限的，当有多个进程要执行的时候，都要给4G内存，很显然你内存小一点，这很快就分配完了，于是没有得到分配资">
-<meta name="keywords" content="计算机,内存">
+  <meta name="description" content="概述问题来源 简单说下为什么计算机只认得 0,1 值的，其实严格来说也不叫认识，只是人为的一种规定。但为什么就不能用我们熟悉的十进制呢？在最最底层，计算机使用的电子元器件只能表示两个状态，通常是低压和高压，人们为了方便计算规定一个为 0 一个为 1 ，使用二进制容易基于这些电子器件构建硬件设备和进行运算。如果非要使用十进制，则这些硬件就会复杂很多，并且效率低下。 在刚开始接触计算机时就产生了这样的">
+<meta name="keywords" content="计算机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="虚拟内存和物理内存">
-<meta property="og:url" content="http://merlin153.com/2019/04/11/虚拟内存和物理内存/index.html">
+<meta property="og:title" content="计算机小数">
+<meta property="og:url" content="http://merlin153.com/2019/05/08/计算机小数/index.html">
 <meta property="og:site_name" content="Merlin&#39;s Blog">
-<meta property="og:description" content="问题来源在很久以前，还没有虚拟内存概念的时候，程序寻址用的都是物理地址。程序能寻址的范围是有限的，这取决于CPU的地址线条数。比如在32位平台下，寻址的范围是2^32也就是4G。并且这是固定的，如果没有虚拟内存，且每次开启一个进程都给4G的物理内存，就可能会出现很多以下问题：  因为物理内存时有限的，当有多个进程要执行的时候，都要给4G内存，很显然你内存小一点，这很快就分配完了，于是没有得到分配资">
+<meta property="og:description" content="概述问题来源 简单说下为什么计算机只认得 0,1 值的，其实严格来说也不叫认识，只是人为的一种规定。但为什么就不能用我们熟悉的十进制呢？在最最底层，计算机使用的电子元器件只能表示两个状态，通常是低压和高压，人们为了方便计算规定一个为 0 一个为 1 ，使用二进制容易基于这些电子器件构建硬件设备和进行运算。如果非要使用十进制，则这些硬件就会复杂很多，并且效率低下。 在刚开始接触计算机时就产生了这样的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/virtual_memary.png">
-<meta property="og:updated_time" content="2019-05-08T05:40:00.844Z">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/%E4%BA%8C%E8%BF%9B%E5%88%B6.jpg">
+<meta property="og:updated_time" content="2019-05-08T06:10:10.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="虚拟内存和物理内存">
-<meta name="twitter:description" content="问题来源在很久以前，还没有虚拟内存概念的时候，程序寻址用的都是物理地址。程序能寻址的范围是有限的，这取决于CPU的地址线条数。比如在32位平台下，寻址的范围是2^32也就是4G。并且这是固定的，如果没有虚拟内存，且每次开启一个进程都给4G的物理内存，就可能会出现很多以下问题：  因为物理内存时有限的，当有多个进程要执行的时候，都要给4G内存，很显然你内存小一点，这很快就分配完了，于是没有得到分配资">
-<meta name="twitter:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/virtual_memary.png">
+<meta name="twitter:title" content="计算机小数">
+<meta name="twitter:description" content="概述问题来源 简单说下为什么计算机只认得 0,1 值的，其实严格来说也不叫认识，只是人为的一种规定。但为什么就不能用我们熟悉的十进制呢？在最最底层，计算机使用的电子元器件只能表示两个状态，通常是低压和高压，人们为了方便计算规定一个为 0 一个为 1 ，使用二进制容易基于这些电子器件构建硬件设备和进行运算。如果非要使用十进制，则这些硬件就会复杂很多，并且效率低下。 在刚开始接触计算机时就产生了这样的">
+<meta name="twitter:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/%E4%BA%8C%E8%BF%9B%E5%88%B6.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -118,14 +118,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-虚拟内存和物理内存" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-计算机小数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      虚拟内存和物理内存
+      计算机小数
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -138,7 +138,7 @@
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-04-11
+          <i class="fa fa-calendar"></i>  2019-05-08
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -154,41 +154,59 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h2><p>在很久以前，还没有虚拟内存概念的时候，程序寻址用的都是物理地址。程序能寻址的范围是有限的，这取决于CPU的地址线条数。比如在32位平台下，寻址的范围是2^32也就是4G。并且这是固定的，如果没有虚拟内存，且每次开启一个进程都给4G的物理内存，就可能会出现很多以下问题：</p>
-<blockquote>
-<p>因为物理内存时有限的，当有多个进程要执行的时候，都要给4G内存，很显然你内存小一点，这很快就分配完了，于是没有得到分配资源的进程就只能等待。当一个进程执行完了以后，再将等待的进程装入内存。这种频繁的装入内存的操作是很没效率的；<br>由于指令都是直接访问物理内存的，那么我这个进程就可以修改其他进程的数据，甚至会修改内核地址空间的数据，这是我们不想看到的；<br>因为内存时随机分配的，所以程序运行的地址也是不正确的。</p>
-</blockquote>
-<p>我们都知道一个进程是与其他进程共享CPU和内存资源的,所以操作系统需要有一套完善的内存管理机制才能防止进程之间内存泄漏的问题。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;针对以上出现的各种问题，为了更加有效地管理内存并减少出错，现代操作系统提供了一种对主存的抽象概念，即是虚拟内存（Virtual Memory）。虚拟内存为每个进程提供了一个一致的、私有的地址空间，它让每个进程产生了一种自己在独享主存的错觉（每个进程拥有一片连续完整的内存空间），换句话说，这个虚拟内存你可以认为，每个进程都认为自己拥有4G的空间，这只是每个进程认为的，但是实际上，在虚拟内存对应的物理内存上，可能只对应的一点点的物理内存，实际用了多少内存，就会对应多少物理内存。进程得到的这4G虚拟内存是一个连续的地址空间（这也只是进程认为），而实际上，它通常是被分隔成多个物理内存碎片，还有一部分存储在外部磁盘存储器上，在需要时进行数据交换。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;理解不深刻的人会认为虚拟内存只是“使用硬盘空间来扩展内存“的技术，这是不对的。虚拟内存的重要意义是它定义了一个连续的虚拟地址空间，使得程序的编写难度降低。并且，把内存扩展到硬盘空间只是使用虚拟内存的必然结果，虚拟内存空间会存在硬盘中，并且会被内存缓存（按需），有的操作系统还会在内存不够的情况下，将某一进程的内存全部放入硬盘空间中，并在切换到该进程时再从硬盘读取（这也是为什么Windows会经常假死的原因…）。</p>
-<h4 id="访问虚拟内存"><a href="#访问虚拟内存" class="headerlink" title="访问虚拟内存"></a>访问虚拟内存</h4><p>进程开始要访问一个地址，它可能会经历下面的过程：</p>
-<ol>
-<li>每次我要访问地址空间上的某一个地址，都需要把地址翻译为实际物理内存地址;</li>
-<li>所有进程共享这整一块物理内存，每个进程只把自己目前需要的虚拟地址空间映射到物理内存上;</li>
-<li>进程需要知道哪些地址空间上的数据在物理内存上，哪些不在（可能这部分存储在磁盘上），还有在物理内存上的哪里，这就需要通过页表来记录;</li>
-<li>页表的每一个表项分两部分，第一部分记录此页是否在物理内存上，第二部分记录物理内存页的地址（如果在的话）;</li>
-<li>当进程访问某个虚拟地址的时候，就会先去看页表，如果发现对应的数据不在物理内存上，就会发生缺页异常;</li>
-<li>缺页异常的处理过程，操作系统立即阻塞该进程，并将硬盘里对应的页换入内存，然后使该进程就绪，如果内存已经满了，没有空地方了，那就找一个页覆盖，至于具体覆盖的哪个页，就需要看操作系统的页面置换算法是怎么设计的了。<br><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/virtual_memary.png" alt="访问虚拟内存"></li>
+            <h2 id="概述问题来源"><a href="#概述问题来源" class="headerlink" title="概述问题来源"></a>概述问题来源</h2><ul>
+<li>简单说下为什么计算机只认得 0,1 值的，其实严格来说也不叫认识，只是人为的一种规定。但为什么就不能用我们熟悉的十进制呢？在最最底层，计算机使用的电子元器件只能表示两个状态，通常是<strong>低压和高压</strong>，人们为了方便计算规定一个为 0 一个为 1 ，使用二进制容易基于这些电子器件构建硬件设备和进行运算。如果非要使用十进制，则这些硬件就会复杂很多，并且效率低下。</li>
+<li>在刚开始接触计算机时就产生了这样的疑问：<ol>
+<li>既然计算机是二进制的，由一堆仅为 0,1 这样的数字堆叠而成，那它又是怎么样表示小数的呢？</li>
+<li>为什么在 C 语言, C++ 等这样的语言里表示例如 float 这样的小数的时候，却要在赋值的后面加上 f 这个的标志呢？例如：float f = 0.1f;<br>这个问题越来越多的出现在后面的开发中，各种语言对小数的处理办法也有所区别，但是为什么这样一个看起来不起眼的小数为何要花大工夫处理呢？下面就从底层原理归纳下。</li>
 </ol>
-<p>可以看出虚拟内存主要提供了如下三个重要的能力：</p>
-<ul>
-<li>它把主存看作为一个存储在硬盘上的虚拟地址空间的高速缓存，并且只在主存中缓存活动区域（按需缓存）。</li>
-<li>它为每个进程提供了一个一致的地址空间，从而降低了程序员对内存管理的复杂性。</li>
-<li>它还保护了每个进程的地址空间不会被其他进程破坏。<h4 id="虚拟内存机制的优点"><a href="#虚拟内存机制的优点" class="headerlink" title="虚拟内存机制的优点"></a>虚拟内存机制的优点</h4></li>
+</li>
 </ul>
-<ol>
-<li>既然每个进程的内存空间都是一致而且固定的（32位平台下都是4G），所以链接器在链接可执行文件时，可以设定内存地址，而不用去管这些数据最终实际内存地址，这交给内核来完成映射关系。</li>
-<li>当不同的进程使用同一段代码时，比如库文件的代码，在物理内存中可以只存储一份这样的代码，不同进程只要将自己的虚拟内存映射过去就好了，这样可以节省物理内存。</li>
-<li>在程序需要分配连续空间的时候，只需要在虚拟内存分配连续空间，而不需要物理内存时连续的，实际上，往往物理内存都是断断续续的内存碎片。这样就可以有效地利用我们的物理内存。</li>
-</ol>
-<hr>
-<p>推荐参考：<br>[1]虚拟内存具体分析：<a href="https://www.cnblogs.com/dyllove98/archive/2013/06/12/3132940.html" target="_blank" rel="noopener">https://www.cnblogs.com/dyllove98/archive/2013/06/12/3132940.html</a></p>
-<p>[2]内存分配问题：<a href="https://juejin.im/post/59f8691b51882534af254317" target="_blank" rel="noopener">https://juejin.im/post/59f8691b51882534af254317</a></p>
+<h2 id="实际中的问题"><a href="#实际中的问题" class="headerlink" title="实际中的问题"></a>实际中的问题</h2><p>用 Java 测试如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f1 = <span class="number">0.2f</span>+<span class="number">0.2f</span>;</span><br><span class="line"><span class="keyword">float</span> f2 = <span class="number">0.2f</span>*<span class="number">0.2f</span>;</span><br><span class="line">System.out.println(f1);</span><br><span class="line">System.out.println(f2);</span><br></pre></td></tr></table></figure></p>
+<p>这个程序按理应该输出 0.4 和 0.04 ，实际上输出的却是0.4 和 0.040000003，难道是计算机算错了？</p>
+<h4 id="简单答案"><a href="#简单答案" class="headerlink" title="简单答案"></a>简单答案</h4><p>实际上运算本身不会出错，而是<strong>计算机本身不能精确表示很多数</strong>，比如 0.2 这个数，它只能表示一个非常接近但又不等于 0.2 的一个数(下面有分析)，所以本身表示的值都不精确，运算的结果不精确也就不足为奇了。那么问题又来了，计算机为什么表示不清楚这样的小数，它能表示清楚哪些小数呢？</p>
+<h6 id="计算机为什么不能精确表示小数"><a href="#计算机为什么不能精确表示小数" class="headerlink" title="计算机为什么不能精确表示小数"></a>计算机为什么不能精确表示小数</h6><p>这个问题严格来说问的也不准确，<strong>计算机并不能完全精确表示所有小数，但有些小数是可以精确表示的</strong>，比如0.25可以精确表示，但是 0.2 却是一个逼近值表示的。 0.2 怎么会不能精确表示呢？在十进制的世界里是可以的，但在二进制的世界里不行。在说二进制之前，我们先来看下熟悉的十进制。</p>
+<p>一. 十进制表示</p>
+<ul>
+<li>实际上，十进制也只能表示那些可以表述为10的多少次方和的数，比如12.345，实际上表示的：1<em>10+2</em>1+3<em>0.1+4</em>0.01+5*0.001，与整数的表示类似，小数点后面的每个位置也都有一个位权，从左到右，依次为 0.1,0.01,0.001,…即10^(-1), 10^(-2), 10^(-3)。</li>
+<li>但是很多数，十进制也是不能精确表示的，比如1/3, 保留三位小数的话，十进制表示是0.333，但无论后面保留多少位小数，都是不精确的，用0.333进行运算，比如乘以3，期望结果是1，但实际上却是0.999。</li>
+</ul>
+<p>二. 二进制表示</p>
+<ul>
+<li>二进制就是使用 0,1 表示的数字，例如 101.11 就等于 1 <em> 2^2 +0 </em>2^1 + 1<em>2^0 + 1</em>2^-1 + 1*2^-2  = 4+0+1+1/2+1/4 = 5.75 ，下图展示了二进制小数的表达方式:</li>
+</ul>
+<p><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/%E4%BA%8C%E8%BF%9B%E5%88%B6.jpg" alt="二进制小数表示"></p>
+<p>右图可知，对于二进制小数，<strong>小数点右边能表达的值</strong>是 1/2, 1/4, 1/8, 1/16, 1/32, 1/64,  1/128 …  1/(2^n）<br>现在问题来了， 计算机只能用这些个 1/(2^n） 之和来表达十进制的小数。<br>我们来试一试如何表达十进制的 0.2 吧。</p>
+<p>0.01  = 1/4  = 0.25  ,太大</p>
+<p>0.001 =1/8 = 0.125 , 又太小</p>
+<p>0.0011   = 1/8 + 1/16 = 0.1875 , 逼近0.2了</p>
+<p>0.00111 = 1/8 + 1/16 + 1/32 = 0.21875  , 又大了</p>
+<p>0.001101 = 1/8+ 1/16 + 1/64 = 0.203125  还是大</p>
+<p>0.0011001 = 1/8 + 1/16 + 1/128 =  0.1953125  这结果不错</p>
+<p>继续逼近:0.00110011 = 1/8+1/16+1/128+1/256 = 0.19921875<br>已经很逼近了， 就这样吧！所以可以看出，0.2这样的小数是没有办法表示清楚的。 但是比如0.25、0.125 等这样的小数就可以表示清楚，因为这种值是不需要用逼近的方法的。</p>
+<h6 id="怎么处理不精确问题"><a href="#怎么处理不精确问题" class="headerlink" title="怎么处理不精确问题"></a>怎么处理不精确问题</h6><p>大部分情况下，我们不需要那么高的精度，可以<strong>四舍五入</strong>，或者在输出的时候只保留固定个数的小数位。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;明白缘由了，再来分析上面那个程序的因果。原来上述的结果只是 Java 语言给我们造成的假象，计算结果其实也是不精确的，但是由于结果和0.2足够接近，在输出的时候，Java选择了输出0.2这个看上去非常精简的数字，而不是一个中间有很多0的小数。在误差足够小的时候，结果看上去是精确的，但不精确其实才是常态。</p>
+<blockquote>
+<p>如果真的需要比较高的精度，一种方法是将小数转化为整数进行运算，运算结束后再转化为小数，另外的方法一般是使用十进制的数据类型，这个没有统一的规范，在Java中是BigDecimal，运算更准确，但效率比较低，本节就不详细说了。</p>
+</blockquote>
+<h4 id="另一个问题"><a href="#另一个问题" class="headerlink" title="另一个问题"></a>另一个问题</h4><h6 id="浮点数为什么叫浮点数"><a href="#浮点数为什么叫浮点数" class="headerlink" title="浮点数为什么叫浮点数"></a>浮点数为什么叫浮点数</h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;很多时候我们用”小数”这个词表示 float 和 double 类型，其实，这是不严谨的，”小数”是在数学中用的词，而在计算机中，我们一般说的是”浮点数”。float和double被称为浮点数据类型，小数运算被称为浮点运算。<br>为什么要叫浮点数呢？这是由于小数的二进制表示中，表示某个小数的小数点的时候，点不是固定的，而是浮动的。</p>
+<p>例如：</p>
+<ul>
+<li><p>我们还是用10进制类比，10进制有科学表示法，比如123.45这个数，直接这么写，就是固定表示法，如果用科学表示法，在小数点前只保留一位数字，可以写为1.2345E2即1.2345*(10^2)，即在科学表示法中，小数点向左浮动了两位。</p>
+</li>
+<li><p>二进制中为表示小数，也采用类似的科学表示法，形如 m*(2^e)。m称为尾数，e称为指数。指数可以为真，也可以为负，负的指数表示哪些接近0的比较小的数。在二进制中，单独表示尾数部分和指数部分，另外还有一个符号位表示正负。</p>
+</li>
+</ul>
+<h6 id="浮点数在计算机中的表示标准"><a href="#浮点数在计算机中的表示标准" class="headerlink" title="浮点数在计算机中的表示标准"></a>浮点数在计算机中的表示标准</h6><p>几乎所有的硬件和编程语言表示小数的二进制格式都是一样的，这种格式是一个标准，叫做IEEE 754标准，它定义了两种格式，一种是32位的，对应于Java的float，另一种是64位的，对应于Java的double。在两种格式中，除了表示正常的数，标准还规定了一些特殊的二进制形式表示一些特殊的值，比如负无穷，正无穷，0，NaN (非数值，比如0乘以无穷大)。</p>
+<blockquote>
+<p>32位格式中，1位表示符号，23位表示尾数，8位表示指数。64位格式中，1位表示符号，52位表示尾数，11位表示指数。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由于浮点数表示的这种“不精确性”或者说是“近似性”， 对于精确度要求不高的运算还行， 如果我们用float或者double 来做哪些要求精确的运算（例如银行）时就要小心了, 很可能得不到你想要的结果。具体的改进方法推荐大家看看《Effective Java》在第48条所推荐的“使用BigDecimal来做精确运算”。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年05月08日 13:40</p>
-        <p>原始链接： <a class="post-url" href="/2019/04/11/虚拟内存和物理内存/" title="虚拟内存和物理内存">http://merlin153.com/2019/04/11/虚拟内存和物理内存/</a></p>
+        <p>最后更新： 2019年05月08日 14:10</p>
+        <p>原始链接： <a class="post-url" href="/2019/05/08/计算机小数/" title="计算机小数">http://merlin153.com/2019/05/08/计算机小数/</a></p>
         <footer>
             <a href="http://merlin153.com">
                 <img src="/images/logo.png" alt="merlin">
@@ -245,7 +263,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/&title=《虚拟内存和物理内存》 — Merlin's Blog&pic=/images/virtualmem.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/05/08/计算机小数/&title=《计算机小数》 — Merlin's Blog&pic=/images/computermem.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -255,22 +273,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/&title=《虚拟内存和物理内存》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/05/08/计算机小数/&title=《计算机小数》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/11/虚拟内存和物理内存/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/05/08/计算机小数/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟内存和物理内存》 — Merlin's Blog&url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/&via=http://merlin153.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《计算机小数》 — Merlin's Blog&url=http://merlin153.com/2019/05/08/计算机小数/&via=http://merlin153.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/11/虚拟内存和物理内存/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/05/08/计算机小数/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -280,7 +298,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/11/虚拟内存和物理内存/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/05/08/计算机小数/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -294,8 +312,6 @@
       
     <a href="/tags/计算机/" class="color4">计算机</a>
       
-    <a href="/tags/内存/" class="color3">内存</a>
-      
   </li>
 
         </ul>
@@ -307,26 +323,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题来源"><span class="post-toc-text">问题来源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方法"><span class="post-toc-text">解决方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问虚拟内存"><span class="post-toc-text">访问虚拟内存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#虚拟内存机制的优点"><span class="post-toc-text">虚拟内存机制的优点</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述问题来源"><span class="post-toc-text">概述问题来源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实际中的问题"><span class="post-toc-text">实际中的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简单答案"><span class="post-toc-text">简单答案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#计算机为什么不能精确表示小数"><span class="post-toc-text">计算机为什么不能精确表示小数</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#怎么处理不精确问题"><span class="post-toc-text">怎么处理不精确问题</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#另一个问题"><span class="post-toc-text">另一个问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#浮点数为什么叫浮点数"><span class="post-toc-text">浮点数为什么叫浮点数</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#浮点数在计算机中的表示标准"><span class="post-toc-text">浮点数在计算机中的表示标准</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/05/08/TCP原理/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          TCP原理
-        
-      </span>
-    </a>
   
-  
-    <a href="/2019/04/10/Git常用语法/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Git常用语法</span>
+    <a href="/2019/05/08/Python爬虫实践01/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Python爬虫实践01</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -335,7 +341,7 @@
 
 
     
-        <div id="SOHUCS" sid="虚拟内存和物理内存"></div>
+        <div id="SOHUCS" sid="计算机小数"></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyu9kxEBM';

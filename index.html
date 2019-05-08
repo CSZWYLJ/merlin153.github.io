@@ -116,6 +116,205 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
+    <article id="post-计算机小数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/08/计算机小数/">计算机小数</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/计算机基础/">计算机基础</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2019/05/08/计算机小数/">
+                
+                <img src="http://merlin153.com//images/computermem.jpg" alt="计算机小数" title="计算机小数">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                概述问题来源
+简单说下为什么计算机只认得 0,1 值的，其实严格来说也不叫认识，只是人为的一种规定。但为什么就不能用我们熟悉的十进制呢？在最最底层，计算机使用的电子元器件只能表示两个状态，通常是低压和高压，人们为了方便计算规定一个为 0 一个为 1 ，使用二进制容易基于这些电子器件构建硬件设备和进行运算。如果非要使用十进制，则这些硬件就会复杂很多，并且效率低下。
+在刚开始...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2019-05-08</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/计算机/" class="color4">计算机</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2019/05/08/计算机小数/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-Python爬虫实践01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/08/Python爬虫实践01/">Python爬虫实践01</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/爬虫实践/">爬虫实践</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2019/05/08/Python爬虫实践01/">
+                
+                <img src="http://merlin153.com//images/reptile.jpg" alt="Python爬虫实践01" title="Python爬虫实践01">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                猫眼项目实践此项目目的是提取猫眼电影TOP榜单中的电影信息存储于CSV文件中，也是我的第一个网页爬虫实践。
+静态网页实践
+通过观察，可以发现猫眼的排榜页存在一些规律，每页都有个偏移量，URL的变化规律是参数offset值不断偏移，每页偏移的值为10，由此我们可以编写一个获取每页数据函数，接收参数就是页码数，如下：
+
+1234第二页： http://maoyan.com/b...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2019-05-08</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/爬虫/" class="color3">爬虫</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2019/05/08/Python爬虫实践01/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-Python爬虫实践" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/08/Python爬虫实践/">Python爬虫实践</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/爬虫实践/">爬虫实践</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2019/05/08/Python爬虫实践/">
+                
+                <img src="http://merlin153.com//images/reptile.jpg" alt="Python爬虫实践" title="Python爬虫实践">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                爬虫原理用户获取网络数据的方式有以下两种：
+
+浏览器提交HTTP请求—&gt;下载网页代码—&gt;解析成页面。
+模拟浏览器发送请求(获取网页代码)-&gt;提取有用的数据-&gt;存放于数据库或文件中。而爬虫做的事情，大致过程如下:
+
+
+通过HTTP库向目标站点发起请求，即发送一个Request，请求可以包含额外的headers等信息，等待服务器的响应
+如果服务器正常响...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2019-05-08</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/爬虫/" class="color3">爬虫</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2019/05/08/Python爬虫实践/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
     <article id="post-TCP原理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -194,6 +393,13 @@
   
 
           
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/计算机基础/">计算机基础</a>
+                  
+              </span>
+          
       </header>
     
     <div class="article-entry " itemprop="articleBody">
@@ -201,13 +407,15 @@
         <div class="article-img">
             <a href="/2019/04/11/虚拟内存和物理内存/">
                 
-                <img src="http://merlin153.com/images/banner.jpg" alt="虚拟内存和物理内存" title="虚拟内存和物理内存">
+                <img src="http://merlin153.com//images/virtualmem.png" alt="虚拟内存和物理内存" title="虚拟内存和物理内存">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                
+                问题来源在很久以前，还没有虚拟内存概念的时候，程序寻址用的都是物理地址。程序能寻址的范围是有限的，这取决于CPU的地址线条数。比如在32位平台下，寻址的范围是2^32也就是4G。并且这是固定的，如果没有虚拟内存，且每次开启一个进程都给4G的物理内存，就可能会出现很多以下问题：
+
+因为物理内存时有限的，当有多个进程要执行的时候，都要给4G内存，很显然你内存小一点，这很快就分...
             </p>
         </div>
       
@@ -220,6 +428,15 @@
                 <li><i class="fa fa-calendar"></i>2019-04-11</li>
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/计算机/" class="color4">计算机</a>
+      
+    <a href="/tags/内存/" class="color3">内存</a>
+      
+  </li>
+
         </ul>
         
             <a href="/2019/04/11/虚拟内存和物理内存/#more" class="article-more-link">more&gt;&gt;</a>
@@ -574,214 +791,6 @@ while 循环使用 else 语句123456co...
 
 
   
-    <article id="post-初学python-05-基本类型的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/初学python-05-基本类型的使用/">初学python(05--基本类型的使用)</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Python学习/">Python学习</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/04/10/初学python-05-基本类型的使用/">
-                
-                <img src="http://merlin153.com//images/python.png" alt="初学python(05--基本类型的使用)" title="初学python(05--基本类型的使用)">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                数据基本分类
-
-
-类别
-成员
-
-
-
-
-不可变类型
-Number(数字),String(字符串),Tuple(元组)
-
-
-可变类型
-List(),Dictionary(字典),Set(集合)
-
-
-
-不可变类型1.数字Number
-整型(Int) - 通常被称为是整型或整数，是正或负整数，不带小数点。Python3 整型是没有限制大小的，可以当作 Long 类型使用，所以 P...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-04-09</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Python/" class="color2">Python</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2019/04/10/初学python-05-基本类型的使用/#more" class="article-more-link">more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-初学python-04-基本操作" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/初学python-04-基本操作/">初学python(04--基本操作)</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Python学习/">Python学习</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/04/10/初学python-04-基本操作/">
-                
-                <img src="http://merlin153.com//images/python.png" alt="初学python(04--基本操作)" title="初学python(04--基本操作)">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                基础语法文件保存默认保存一般都是采取 xxx.py 的格式标准进行保存，也可以以其他文件形式保存，但推荐以 .py 结尾，以便其他文件识别，例如：若想实现如windows的 .exe 一样直接运行，最好在第一行添加此注释：1#!/usr/bin/env python3
-注释
-设置编码默认情况下，Python 3 源码文件以 UTF-8 编码，所有字符串都是 unicode...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-04-09</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Python/" class="color2">Python</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2019/04/10/初学python-04-基本操作/#more" class="article-more-link">more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-初学python-02-Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/初学python-02-Linux命令/">初学python(02--Linux命令)</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Python学习/">Python学习</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/04/10/初学python-02-Linux命令/">
-                
-                <img src="http://merlin153.com//images/python.png" alt="初学python(02--Linux命令)" title="初学python(02--Linux命令)">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Linux命令格式：command [-options] [parameter1] （注：#皆为注释，不为代码内容，单词间有空格）
-查看信息：ls12345ls --help    #查看Linux自带的帮助信息，&quot;ls -h&quot;不能生效ls -lah      #显示当前路径下的具体文件信息，l,a,h三个字母顺序无碍man ls       #查看l...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-04-09</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Python/" class="color2">Python</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2019/04/10/初学python-02-Linux命令/#more" class="article-more-link">more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -840,10 +849,10 @@ List(),Dictionary(字典),Set(集合)
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a>
+            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a><a class="category-link" href="/categories/爬虫实践/">爬虫实践</a><a class="category-link" href="/categories/计算机基础/">计算机基础</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 15px;">计算机</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -876,7 +885,7 @@ List(),Dictionary(字典),Set(集合)
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a>
+            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 15px;">计算机</a>
         </div>
     </div>
 </div>
