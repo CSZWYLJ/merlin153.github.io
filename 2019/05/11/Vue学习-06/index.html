@@ -3,27 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>初学python(01--认识Linux) | Merlin&#39;s Blog</title>
+  <title>Vue学习--06 | Merlin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="merlin,merlin's Blog">
   
-  <meta name="description" content="（注：本人是初学小白，记录笔记于此以便查看）windows作为最广泛的傻瓜式系统，为很多国内外用户的喜欢，它提供很简单易操作的功能，例如（安装程序，编写文案等方面，只需双击即可），但是在很多的实际开发中，尤其在选择系统做服务器中，考虑到便捷安全等各方面的因素，此以Linux为核心的操作系统受到广大开发人员的喜爱，而windows却不能兼具这样的功能。 区别首先对windows和Linux的目录分级">
-<meta name="keywords" content="Python">
+  <meta name="description" content="v-if 和 v-show12345678910111213141516171819202122232425&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;input type=&quot;button&quot; value=&quot;点击&quot; @click=&quot;toggle&quot;&amp;gt;    &amp;lt;p v-if=&quot;flag&quot;&amp;gt;        这是v-if的内容    &amp;lt;/p&amp;gt;    &amp;lt;p v-">
+<meta name="keywords" content="vue,前端框架">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初学python(01--认识Linux)">
-<meta property="og:url" content="http://merlin153.com/2019/04/10/初学python(01--认识Linux)/index.html">
+<meta property="og:title" content="Vue学习--06">
+<meta property="og:url" content="http://merlin153.com/2019/05/11/Vue学习-06/index.html">
 <meta property="og:site_name" content="Merlin&#39;s Blog">
-<meta property="og:description" content="（注：本人是初学小白，记录笔记于此以便查看）windows作为最广泛的傻瓜式系统，为很多国内外用户的喜欢，它提供很简单易操作的功能，例如（安装程序，编写文案等方面，只需双击即可），但是在很多的实际开发中，尤其在选择系统做服务器中，考虑到便捷安全等各方面的因素，此以Linux为核心的操作系统受到广大开发人员的喜爱，而windows却不能兼具这样的功能。 区别首先对windows和Linux的目录分级">
+<meta property="og:description" content="v-if 和 v-show12345678910111213141516171819202122232425&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;input type=&quot;button&quot; value=&quot;点击&quot; @click=&quot;toggle&quot;&amp;gt;    &amp;lt;p v-if=&quot;flag&quot;&amp;gt;        这是v-if的内容    &amp;lt;/p&amp;gt;    &amp;lt;p v-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/Linux内核.jpg">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/Linux分类.jpg">
-<meta property="og:image" content="http://pole6eku1.bkt.clouddn.com/Linux文件目录.jpg">
-<meta property="og:updated_time" content="2019-04-09T14:26:41.906Z">
+<meta property="og:updated_time" content="2019-05-10T14:01:11.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初学python(01--认识Linux)">
-<meta name="twitter:description" content="（注：本人是初学小白，记录笔记于此以便查看）windows作为最广泛的傻瓜式系统，为很多国内外用户的喜欢，它提供很简单易操作的功能，例如（安装程序，编写文案等方面，只需双击即可），但是在很多的实际开发中，尤其在选择系统做服务器中，考虑到便捷安全等各方面的因素，此以Linux为核心的操作系统受到广大开发人员的喜爱，而windows却不能兼具这样的功能。 区别首先对windows和Linux的目录分级">
-<meta name="twitter:image" content="http://pole6eku1.bkt.clouddn.com/Linux内核.jpg">
+<meta name="twitter:title" content="Vue学习--06">
+<meta name="twitter:description" content="v-if 和 v-show12345678910111213141516171819202122232425&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;input type=&quot;button&quot; value=&quot;点击&quot; @click=&quot;toggle&quot;&amp;gt;    &amp;lt;p v-if=&quot;flag&quot;&amp;gt;        这是v-if的内容    &amp;lt;/p&amp;gt;    &amp;lt;p v-">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -120,14 +116,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-初学python(01--认识Linux)" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Vue学习-06" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      初学python(01--认识Linux)
+      Vue学习--06
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -135,12 +131,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/Python学习/">Python学习</a>
+                      <a href="/categories/Vue学习/">Vue学习</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-04-09
+          <i class="fa fa-calendar"></i>  2019-05-10
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -156,34 +152,19 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>（注：本人是初学小白，记录笔记于此以便查看）<br>windows作为最广泛的傻瓜式系统，为很多国内外用户的喜欢，它提供很简单易操作的功能，例如（安装程序，编写文案等方面，只需双击即可），但是在很多的实际开发中，尤其在选择系统做服务器中，考虑到便捷安全等各方面的因素，此以Linux为核心的操作系统受到广大开发人员的喜爱，而windows却不能兼具这样的功能。</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>首先对windows和Linux的目录分级进行了解：<br>windows在实际生活中很常见，目录结构就不在此细说。可能唯一需要了解的就是，在长期的使用习惯中，人们把C盘独立出来，并不代表C盘不能装东西。C盘又叫启动盘，和其他盘一样可以装软件装资料，只是因为启动windows系统时，计算机需要访问C盘中的启动程序，当C盘装了太多资料软件时会影响启动速率，而这个时间上主要是在查找文件的开销上。<br>再来看看Linux：Linux 系统是一套免费使用和自由传播的类 Unix 操作系统（主要用在服务器上），是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。它能运行主要的UNIX 工具软件、应用程序和网络协议，支持 32 位和 64 位硬件。 Linux 继承了 Unix 以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。严格来说，Linux不是一个操作系统，只是一个操作系统的内核。如下图：<br><img src="http://pole6eku1.bkt.clouddn.com/Linux内核.jpg" alt="Linux内核"></p>
-<p>基于Linux内核的操作系统有很多，下图是发行中主流的一些：<br><img src="http://pole6eku1.bkt.clouddn.com/Linux分类.jpg" alt="主流Linux"><br>主流的Linux操作系统</p>
-<p>这里以Ubuntu操作系统为例，下图是Ubuntu的文件目录结构：<br><img src="http://pole6eku1.bkt.clouddn.com/Linux文件目录.jpg" alt="Linux文件目录结构"></p>
-<h2 id="文件作用："><a href="#文件作用：" class="headerlink" title="文件作用："></a>文件作用：</h2><p>/：根目录，一般根目录下只存放目录，在Linux下有且只有一个根目录。所有的东西都是从这里开始。当你在终端里输入“/home”，你其实是在告诉电脑，先从/（根目录）开始，再进入到home目录。</p>
-<p>/bin: /usr/bin: 可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等（常用指令皆是调用这里的文件）。</p>
-<p>/boot：放置linux系统启动时用到的一些文件，如Linux的内核文件：/boot/vmlinuz，系统引导管理器：/boot/grub。</p>
-<p>/dev：存放linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备，常用的是挂载光驱 mount /dev/cdrom /mnt。</p>
-<p>/etc：系统配置文件存放的目录，不建议在此目录下存放可执行文件，重要的配置文件有 /etc/inittab、/etc/fstab、/etc/init.d、/etc/X11、/etc/sysconfig、/etc/xinetd.d。</p>
-<p>/home：系统默认的用户家目录，新增用户账号时，用户的家目录都存放在此目录下，表示当前用户的家目录，edu 表示用户 edu 的家目录。</p>
-<p>/lib: /usr/lib: /usr/local/lib：系统使用的函数库的目录，程序在执行过程中，需要调用一些额外的参数时需要函数库的协助。</p>
-<p>/lost+fount：系统异常产生错误时，会将一些遗失的片段放置于此目录下。</p>
-<p>/mnt: /media：光盘默认挂载点，通常光盘挂载于 /mnt/cdrom 下，也不一定，可以选择任意位置进行挂载。</p>
-<p>/opt：给主机额外安装软件所摆放的目录。</p>
-<p>/proc：此目录的数据都在内存中，如系统核心，外部设备，网络状态，由于数据都存放于内存中，所以不占用磁盘空间，比较重要的目录有 /proc/cpuinfo、/proc/interrupts、/proc/dma、/proc/ioports、/proc/net/* 等。</p>
-<p>/root：系统管理员root的家目录。</p>
-<p>/sbin: /usr/sbin: /usr/local/sbin：放置系统管理员使用的可执行命令，如fdisk、shutdown、mount 等。与 /bin 不同的是，这几个目录是给系统管理员 root使用的命令，一般用户只能”查看”而不能设置和使用。</p>
-<p>/tmp：一般用户或正在执行的程序临时存放文件的目录，任何人都可以访问，重要数据不可放置在此目录下。</p>
-<p>/srv：服务启动之后需要访问的数据目录，如 www 服务需要访问的网页数据存放在 /srv/www 内。</p>
-<p>/usr：应用程序存放目录，/usr/bin 存放应用程序，/usr/share 存放共享数据，/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local: 存放软件升级包。/usr/share/doc: 系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录。</p>
-<p>/var：放置系统执行过程中经常变化的文件，如随时更改的日志文件 /var/log，/var/log/message：所有的登录文件存放目录，/var/spool/mail：邮件存放的目录，/var/run:程序或服务启动后，其PID存放在该目录下。<br>可见Linux操作系统的文件系统和windows操作系统是有很大区别的，在指令操作上也有很大差异。</p>
-<p>在Ubuntu虚拟机系统中，升级系统时可参考此链接以此升级Linux系统，注意：当出现没有“curl”指令时，先安装curl.</p>
-<p>参考文章：<a href="https://www.cnblogs.com/liuwei6/p/6661997.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuwei6/p/6661997.html</a></p>
+            <h2 id="v-if-和-v-show"><a href="#v-if-和-v-show" class="headerlink" title="v-if 和 v-show"></a>v-if 和 v-show</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> @<span class="attr">click</span>=<span class="string">"toggle"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"flag"</span>&gt;</span></span><br><span class="line">        这是v-if的内容</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-show</span>=<span class="string">"flag"</span>&gt;</span></span><br><span class="line">        v-show代码片</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../lib/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="undefined">        el: "#app",</span></span><br><span class="line"><span class="undefined">        data: &#123;</span></span><br><span class="line"><span class="undefined">            flag: true,</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        methods: &#123;</span></span><br><span class="line"><span class="undefined">            toggle() &#123;</span></span><br><span class="line"><span class="undefined">                this.flag = !this.flag;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>打开浏览器的检查，查看元素，可以发现：</p>
+<ul>
+<li>v-if 的特点：每次都会重新删除或创建标签元素</li>
+<li>v-show 的特点:仅仅只是切换了标签元素的显示状态 display:none 样式。</li>
+</ul>
+<p>所以 v-if 有较高的切换性能消耗， v-show 有较高的初始渲染消耗，如果涉及到频繁的切换，最好不要使用 v-if ,如果元素可能永远都不显示出来，锐减使用 v-if。</p>
+<p>另外，在代码中 @click=”toggle” 也可以写成 @click=”flag=!flag” ,vue也是能够成功读取的</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年04月09日 22:26</p>
-        <p>原始链接： <a class="post-url" href="/2019/04/10/初学python(01--认识Linux)/" title="初学python(01--认识Linux)">http://merlin153.com/2019/04/10/初学python(01--认识Linux)/</a></p>
+        <p>最后更新： 2019年05月10日 22:01</p>
+        <p>原始链接： <a class="post-url" href="/2019/05/11/Vue学习-06/" title="Vue学习--06">http://merlin153.com/2019/05/11/Vue学习-06/</a></p>
         <footer>
             <a href="http://merlin153.com">
                 <img src="/images/logo.png" alt="merlin">
@@ -240,7 +221,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/04/10/初学python(01--认识Linux)/&title=《初学python(01--认识Linux)》 — Merlin's Blog&pic=/images/python.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/05/11/Vue学习-06/&title=《Vue学习--06》 — Merlin's Blog&pic=/images/vuejs.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -250,22 +231,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/04/10/初学python(01--认识Linux)/&title=《初学python(01--认识Linux)》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/05/11/Vue学习-06/&title=《Vue学习--06》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/04/10/初学python(01--认识Linux)/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/05/11/Vue学习-06/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初学python(01--认识Linux)》 — Merlin's Blog&url=http://merlin153.com/2019/04/10/初学python(01--认识Linux)/&via=http://merlin153.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue学习--06》 — Merlin's Blog&url=http://merlin153.com/2019/05/11/Vue学习-06/&via=http://merlin153.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/04/10/初学python(01--认识Linux)/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/05/11/Vue学习-06/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -275,7 +256,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/04/10/初学python(01--认识Linux)/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/05/11/Vue学习-06/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -287,7 +268,9 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Python/" class="color2">Python</a>
+    <a href="/tags/vue/" class="color4">vue</a>
+      
+    <a href="/tags/前端框架/" class="color5">前端框架</a>
       
   </li>
 
@@ -300,26 +283,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#区别"><span class="post-toc-text">区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件作用："><span class="post-toc-text">文件作用：</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#v-if-和-v-show"><span class="post-toc-text">v-if 和 v-show</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/04/10/初学python-02-Linux命令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/11/Vue学习-07/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          初学python(02--Linux命令)
+          Vue学习--07
         
       </span>
     </a>
   
   
-    <a href="/2019/04/09/Pycharm个性设置/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Pycharm个性设置</span>
+    <a href="/2019/05/11/Vue学习-05/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Vue学习--05</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -328,7 +311,7 @@
 
 
     
-        <div id="SOHUCS" sid="初学python(01--认识Linux)"></div>
+        <div id="SOHUCS" sid="Vue学习-06"></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyu9kxEBM';
@@ -390,10 +373,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a><a class="category-link" href="/categories/爬虫实践/">爬虫实践</a><a class="category-link" href="/categories/计算机基础/">计算机基础</a>
+            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/Python进阶/">Python进阶</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/Vue学习/">Vue学习</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a><a class="category-link" href="/categories/爬虫实践/">爬虫实践</a><a class="category-link" href="/categories/计算机基础/">计算机基础</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 15px;">计算机</a>
+            <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 16.67px;">前端框架</a> <a href="/tags/博客/" style="font-size: 13.33px;">博客</a> <a href="/tags/爬虫/" style="font-size: 13.33px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 13.33px;">计算机</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -426,7 +409,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 15px;">计算机</a>
+            <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 16.67px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 16.67px;">前端框架</a> <a href="/tags/博客/" style="font-size: 13.33px;">博客</a> <a href="/tags/爬虫/" style="font-size: 13.33px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 13.33px;">计算机</a>
         </div>
     </div>
 </div>
