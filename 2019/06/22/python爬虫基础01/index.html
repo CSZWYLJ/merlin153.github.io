@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>python爬虫基础01 | Merlin&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="merlin,merlin's Blog">
+  
+  <meta name="description" content="一、简介1、urllib库和URLError异常处理urllib库是python中的一个功能强大、用于操作URL，并在做爬虫时经常用到的库。在python2.x中分urllib库和urllib2库，python3.x则直接合并为了urllib库，且使用方法稍有不同，本文（或者说整个体系皆以python3.x）做记录。 2、urllib快速爬取网页(1). 导入urllib库 1&amp;gt;&amp;gt;&amp;g">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫基础01">
+<meta property="og:url" content="http://merlin153.com/2019/06/22/python爬虫基础01/index.html">
+<meta property="og:site_name" content="Merlin&#39;s Blog">
+<meta property="og:description" content="一、简介1、urllib库和URLError异常处理urllib库是python中的一个功能强大、用于操作URL，并在做爬虫时经常用到的库。在python2.x中分urllib库和urllib2库，python3.x则直接合并为了urllib库，且使用方法稍有不同，本文（或者说整个体系皆以python3.x）做记录。 2、urllib快速爬取网页(1). 导入urllib库 1&amp;gt;&amp;gt;&amp;g">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-22T06:13:55.975Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python爬虫基础01">
+<meta name="twitter:description" content="一、简介1、urllib库和URLError异常处理urllib库是python中的一个功能强大、用于操作URL，并在做爬虫时经常用到的库。在python2.x中分urllib库和urllib2库，python3.x则直接合并为了urllib库，且使用方法稍有不同，本文（或者说整个体系皆以python3.x）做记录。 2、urllib快速爬取网页(1). 导入urllib库 1&amp;gt;&amp;gt;&amp;g">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Merlin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-book"></i>
+                        <span>Reading</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Merlin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个热爱 AI 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//merlin153.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/merlin153">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="CSDN" target="_blank" href="//https://blog.csdn.net/CYLYBYXH">
+                            <i class="fa fa-wrench fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//https://www.jianshu.com/u/e221c80bf14e">
+                            <i class="fa fa-bookmark fa-2x"></i></a>
+                    
+                        <a title="掘金" target="_blank" href="//https://juejin.im/user/5c8bb575e51d45360779b3e9">
+                            <i class="fa fa-viacoin fa-2x"></i></a>
+                    
+                        <a title="email" target="_blank" href="/merlin153@163.com">
+                            <i class="fa fa-envelope fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-python爬虫基础01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python爬虫基础01
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/爬虫实践/">爬虫实践</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-06-22
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h4 id="1、urllib库和URLError异常处理"><a href="#1、urllib库和URLError异常处理" class="headerlink" title="1、urllib库和URLError异常处理"></a>1、urllib库和URLError异常处理</h4><p>urllib库是python中的一个功能强大、用于操作URL，并在做爬虫时经常用到的库。在python2.x中分urllib库和urllib2库，python3.x则直接合并为了urllib库，且使用方法稍有不同，本文（或者说整个体系皆以python3.x）做记录。</p>
+<h4 id="2、urllib快速爬取网页"><a href="#2、urllib快速爬取网页" class="headerlink" title="2、urllib快速爬取网页"></a>2、urllib快速爬取网页</h4><p>(1). 导入urllib库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> urllib.request</span><br></pre></td></tr></table></figure>
+<p>(2). 爬取一个网页</p>
+<p>例如爬取百度的首页，用urllib.request.urlopen打开需要爬取的网页：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; file = urllib.request.urlopen(&quot;http://www.baidu.com&quot;)</span><br></pre></td></tr></table></figure>
+<p>将获取的结果放置在了 file 变量中，下面使用 file.read() 读取全部内容，也可以使用 readline 读取一行内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = file.read()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dataline = file.readline()</span><br></pre></td></tr></table></figure>
+<p>可以看到用两种方式分别爬取到了全部内容和一行内容，可以查看(print或者直接输出都可以)变量内容和变量类型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data</span><br><span class="line"><span class="string">b'&lt;!DOCTYPE html&gt;\n&lt;!--STATUS OK--&gt;\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\r\n        \r\n\t\t\t        \r\n\t\r\n\t\t\t        \r\n\t\r\n\t\t\t        \r\n\t\r\n\t\t\t        \r\n\t\t\t    \r\n\r\n\t\r\n        \r\n\t\t\t        \r\n\t\r\n\t\t\t        \r\n\t\r\n\t\t\t        \r\n\t\r\n\t\t\t        \r\n\t\t\t    \r\n\r\n\r\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n&lt;html&gt;\n&lt;head&gt;\n    \n    &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;\n    &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;\n\t&lt;meta content="always" name="referrer"&gt;\n  (此处省略很多)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&gt;&gt;&gt; type(data)</span></span><br><span class="line"><span class="string">&lt;class '</span>bytes<span class="string">'&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&gt;&gt;&gt; dataline</span></span><br><span class="line"><span class="string">b'</span><span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&gt;&gt;&gt; type(dataline)</span></span><br><span class="line"><span class="string">&lt;class '</span>bytes<span class="string">'&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>读取内容常见的有3中方式，用法为：</p>
+<ol>
+<li>file.read() 读取文件的全部内容，与 readlines 不同的是，read 会把读取到的内容赋给一个字符串变量。</li>
+<li>file.readlines() 读取文件的全部内容，但是 readlines() 会将读取到的内容赋给一个<strong>列表</strong>变量 ，若读取网页全部内容，推荐 readlines() 。</li>
+<li>file.readline() 读取文件的一行。</li>
+</ol>
+</blockquote>
+<p>(3). 将爬取的内容持久化(存入磁盘文件中)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>file_handle = open(<span class="string">"/home/whispersilence/python/reptile_test/1.html"</span>,<span class="string">"wb"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>file_handle.write(data)</span><br><span class="line"><span class="number">153754</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>file_handle.close()</span><br></pre></td></tr></table></figure>
+<p>首先通过 open() 函数打开了该文件，以”wb”（二进制写入）方式打开，打开后将句柄赋给变量 file_handle ，然后用 write() 写入对应的数据 data ，此时输出的结果是写入的字节数 153754 ，写入完毕后通过 close() 方法关闭文件，保证安全性。</p>
+<p>用浏览器打开 1.html 文件后发现除了图片其他界面都很正常。</p>
+<p>(4). 第二种方法：urlretrieve() 函数</p>
+<p>使用 urllib.request 里面的urlretrieve() 函数直接将信息写入本地文件，格式为：urllib.request.urlretrieve(url,filename = “本地文件地址”)，例如:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>filename = urllib.request.urlretrieve(<span class="string">"http://www.merlin153.com"</span>,filename=<span class="string">"/home/whispersilence/python/reptile_test/2.html"</span>)</span><br></pre></td></tr></table></figure>
+<p>执行完成后，可以发现目录中多了 2.html 文件，该文件内容就是请求地址的网页源码。</p>
+<blockquote>
+<p>注意：urlretrieve 执行的过程中会产生一些缓存，若想清除这些信息，执行 urlcleanup() :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt;&gt;&gt; urllib.request.urlcleanup()</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="3、浏览器的模拟"><a href="#3、浏览器的模拟" class="headerlink" title="3、浏览器的模拟"></a>3、浏览器的模拟</h4><p>(1). 使用 build_opener() 修改报头</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">"https://juejin.im/timeline"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>headers = (<span class="string">"User-Agent"</span>,<span class="string">"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Mobile Safari/537.36"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>opener = urllib.request.build_opener()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>opener.addheaders = [headers]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = opener.open(url).read()</span><br></pre></td></tr></table></figure>
+<ol>
+<li>选择确定一个 url</li>
+<li>再定义一个变量 headers 存储对应的 User-Agent 信息，定义的格式为（”User-Agent”,”具体信息”）</li>
+<li>使用 urllib.request.build_opener() 创建自定义的 opener 对象，通过 opener.addheaders 设置头信息。</li>
+</ol>
+<p>然后写入文件中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>filehandle = open(<span class="string">"/home/whispersilence/python/reptile_test/3.html"</span>,<span class="string">"wb"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>filehandle.write(data)</span><br><span class="line"><span class="number">97736</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>filehandle.close()</span><br></pre></td></tr></table></figure>
+<p>(2). 使用add_header()</p>
+<ol>
+<li>设置要爬取的 url 网址</li>
+<li>使用urllib.request.Request(url) 创建 Request 对象并赋给变量 req ,</li>
+<li>然后使用 add_header() 方法添加报头信息，格式为：Request对象名.add_header(字段名，字段值)。</li>
+</ol>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">""</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>req = urllib.request.Request(url)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>req.add_header(<span class="string">"User-Agent"</span>,<span class="string">"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Mobile Safari/537.36"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = urllib.request.urlopen(req).read()</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>filehandle = open(<span class="string">"/home/whispersilence/python/reptile_test/4.html"</span>,<span class="string">"wb"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>filehandle.write(data)</span><br><span class="line"><span class="number">97736</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>filehandle.close()</span><br></pre></td></tr></table></figure>
+<h4 id="4、超时设置"><a href="#4、超时设置" class="headerlink" title="4、超时设置"></a>4、超时设置</h4><p>超时一般用于用户访问网页的响应情况，若长时间不能收到服务器的响应，就做下一步动作，也是保证爬虫能够继续执行程序的必然要求。但是很多时候，服务器一般都能在 1s 内做出响应，使用户感受不到有什么异常发生。下面模拟一下超时响应：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		file = urllib.request.urlopen(<span class="string">"http://yum.iqianyue.com"</span>,timeout=<span class="number">30</span>)</span><br><span class="line">		data = file.read()</span><br><span class="line">		print(len(data))</span><br><span class="line">	<span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">		print(<span class="string">"异常--&gt;"</span>+str(e))</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年06月22日 14:13</p>
+        <p>原始链接： <a class="post-url" href="/2019/06/22/python爬虫基础01/" title="python爬虫基础01">http://merlin153.com/2019/06/22/python爬虫基础01/</a></p>
+        <footer>
+            <a href="http://merlin153.com">
+                <img src="/images/logo.png" alt="merlin">
+                merlin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/06/22/python爬虫基础01/&title=《python爬虫基础01》 — Merlin's Blog&pic=/images/reptile.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/06/22/python爬虫基础01/&title=《python爬虫基础01》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/06/22/python爬虫基础01/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python爬虫基础01》 — Merlin's Blog&url=http://merlin153.com/2019/06/22/python爬虫基础01/&via=http://merlin153.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/06/22/python爬虫基础01/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/06/22/python爬虫基础01/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/爬虫/" class="color3">爬虫</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、简介"><span class="post-toc-text">一、简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、urllib库和URLError异常处理"><span class="post-toc-text">1、urllib库和URLError异常处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、urllib快速爬取网页"><span class="post-toc-text">2、urllib快速爬取网页</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、浏览器的模拟"><span class="post-toc-text">3、浏览器的模拟</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、超时设置"><span class="post-toc-text">4、超时设置</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/12/进阶python-11-zip-和enumerate/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python-11-zip()和enumerate()</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="python爬虫基础01"></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyu9kxEBM';
+        var conf = 'abf1ced8e3f36f007b43fd47d1214c91';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 merlin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://merlin153.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/Python进阶/">Python进阶</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/Vue学习/">Vue学习</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a><a class="category-link" href="/categories/爬虫实践/">爬虫实践</a><a class="category-link" href="/categories/计算机基础/">计算机基础</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客/" style="font-size: 12.5px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 12.5px;">计算机</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-book"></i><span>Reading</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客/" style="font-size: 12.5px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 12.5px;">计算机</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){
+      i["DaoVoiceObject"]=r;
+      i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
+      a=s.createElement(o),m=s.getElementsByTagName(o)[0];
+      a.async=1;a.src=g;a.charset="utf-8";
+      m.parentNode.insertBefore(a,m)}
+    )(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/" + "a702189a" + ".js","daovoice")
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: "a702189a",
+      user_id: "NO_89757",
+      email: "",
+      name: "",
+      signed_up: 1449821660
+    });
+    daovoice('update');
+  </script>
+
+  <script>
+    daovoice('init', {
+      app_id: ""
+    });
+    daovoice('update');
+  </script>
+
