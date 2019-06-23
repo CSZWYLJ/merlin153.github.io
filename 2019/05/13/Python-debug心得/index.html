@@ -8,18 +8,21 @@
   
     <meta name="keywords" content="merlin,merlin's Blog">
   
-  <meta name="description" content="debug操作今天突然萌生个有意思的想法，但是经过测试后，知道了结果但是却不知原理，所以就想 debug 测试下，看看内存情况，这个想法具体是这样的（用迭代遍历的方法改变列表中某个值），代码如下：1234567a = [1,2,3,4,5,6]for i in a:    if i == 5:        i = 10        print(i)    print(i)print(a) 分析">
+  <meta name="description" content="debug操作今天突然萌生个有意思的想法，但是经过测试后，知道了结果但是却不知原理，所以就想 debug 测试下，看看内存情况，这个想法具体是这样的（用迭代遍历的方法改变列表中某个值），代码如下：1234567a = [1,2,3,4,5,6]for i in a:    if i == 5:        i = 10        print(i)    print(i)print(a) de">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python--debug心得">
 <meta property="og:url" content="http://merlin153.com/2019/05/13/Python-debug心得/index.html">
 <meta property="og:site_name" content="Merlin&#39;s Blog">
-<meta property="og:description" content="debug操作今天突然萌生个有意思的想法，但是经过测试后，知道了结果但是却不知原理，所以就想 debug 测试下，看看内存情况，这个想法具体是这样的（用迭代遍历的方法改变列表中某个值），代码如下：1234567a = [1,2,3,4,5,6]for i in a:    if i == 5:        i = 10        print(i)    print(i)print(a) 分析">
+<meta property="og:description" content="debug操作今天突然萌生个有意思的想法，但是经过测试后，知道了结果但是却不知原理，所以就想 debug 测试下，看看内存情况，这个想法具体是这样的（用迭代遍历的方法改变列表中某个值），代码如下：1234567a = [1,2,3,4,5,6]for i in a:    if i == 5:        i = 10        print(i)    print(i)print(a) de">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-16T00:32:07.428Z">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/GIF/for_ergodic.gif">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/GIF/for_range.gif">
+<meta property="og:updated_time" content="2019-06-23T12:16:53.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python--debug心得">
-<meta name="twitter:description" content="debug操作今天突然萌生个有意思的想法，但是经过测试后，知道了结果但是却不知原理，所以就想 debug 测试下，看看内存情况，这个想法具体是这样的（用迭代遍历的方法改变列表中某个值），代码如下：1234567a = [1,2,3,4,5,6]for i in a:    if i == 5:        i = 10        print(i)    print(i)print(a) 分析">
+<meta name="twitter:description" content="debug操作今天突然萌生个有意思的想法，但是经过测试后，知道了结果但是却不知原理，所以就想 debug 测试下，看看内存情况，这个想法具体是这样的（用迭代遍历的方法改变列表中某个值），代码如下：1234567a = [1,2,3,4,5,6]for i in a:    if i == 5:        i = 10        print(i)    print(i)print(a) de">
+<meta name="twitter:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/GIF/for_ergodic.gif">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -153,11 +156,18 @@
       
             
             <h2 id="debug操作"><a href="#debug操作" class="headerlink" title="debug操作"></a>debug操作</h2><p>今天突然萌生个有意思的想法，但是经过测试后，知道了结果但是却不知原理，所以就想 debug 测试下，看看内存情况，这个想法具体是这样的（用迭代遍历的方法改变列表中某个值），代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span>:</span><br><span class="line">        i = <span class="number">10</span></span><br><span class="line">        print(i)</span><br><span class="line">    print(i)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure></p>
-<p>分析：</p>
+<p>debug操作过程如下（F7执行下一步，alt+shift+f7进入方法体内部）：</p>
+<p><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/GIF/for_ergodic.gif" alt="简单for遍历的debug"></p>
+<p>分析：这种形式的遍历有点像是给列表 a 分配了一个临时变量，执行完 for 遍历后会释放这个临时变量，所以令 i = 10 的做法在释放后，也就变成了原来的 5 。</p>
+<p>再看另一种写法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">    <span class="keyword">if</span> a[<span class="number">4</span>] == <span class="number">5</span>:</span><br><span class="line">        a[<span class="number">4</span>] = <span class="number">10</span></span><br><span class="line">    print(a[i])</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>同如上个测试的一样的debug操作：</p>
+<p><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/GIF/for_range.gif" alt="for-range的debug"></p>
+<p>可以发现这样的操作就类似 C 或 Java 语言的操作，在执行 for 循环的过程中，操作的就是实际的值，而不是临时变量，这样就在遍历的过程中改变了列表中的值。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年05月16日 08:32</p>
+        <p>最后更新： 2019年06月23日 20:16</p>
         <p>原始链接： <a class="post-url" href="/2019/05/13/Python-debug心得/" title="Python--debug心得">http://merlin153.com/2019/05/13/Python-debug心得/</a></p>
         <footer>
             <a href="http://merlin153.com">
@@ -282,7 +292,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/06/10/进阶Python-09-拷贝/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/10/进阶python-09-拷贝/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
