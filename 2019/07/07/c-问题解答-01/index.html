@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Vue学习--04 | Merlin&#39;s Blog</title>
+  <title>c++问题解答-01 | Merlin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="merlin,merlin's Blog">
   
-  <meta name="description" content="内联元素(class) 方式1：直接使用html本身的class渲染元素 123&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;h2 class=&quot;red thin italic&quot;&amp;gt;这是h2标题,直接使用class实现属性内容的渲染&amp;lt;/h2&amp;gt;&amp;lt;/div&amp;gt;  方式2：使用Vue的数组形式   v-bind绑定class属性 1&amp;lt;h4 :class=&quot;[&apos;r">
-<meta name="keywords" content="vue,前端框架">
+  <meta name="description" content="一、基础问题1. 静态元素为什么需要初始化？如果不对其进行初始化，它将包含无法预测的值，因为内存保留最后一次操作时的内容。通过初始化数组，可确保内存包含确定的值。 2. 需要初始化动态数组的元素吗？实际上是不需要的。动态数组无需将其元素初始化为默认值，除非应用程序要求数组包含特定的初始值。 3. C++中计算将字符串长度时，包括末尾的空字符吗？不包括。例如“Hello World”的长度为11，这">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习--04">
-<meta property="og:url" content="http://merlin153.com/2019/05/10/Vue学习-04/index.html">
+<meta property="og:title" content="c++问题解答-01">
+<meta property="og:url" content="http://merlin153.com/2019/07/07/c-问题解答-01/index.html">
 <meta property="og:site_name" content="Merlin&#39;s Blog">
-<meta property="og:description" content="内联元素(class) 方式1：直接使用html本身的class渲染元素 123&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;h2 class=&quot;red thin italic&quot;&amp;gt;这是h2标题,直接使用class实现属性内容的渲染&amp;lt;/h2&amp;gt;&amp;lt;/div&amp;gt;  方式2：使用Vue的数组形式   v-bind绑定class属性 1&amp;lt;h4 :class=&quot;[&apos;r">
+<meta property="og:description" content="一、基础问题1. 静态元素为什么需要初始化？如果不对其进行初始化，它将包含无法预测的值，因为内存保留最后一次操作时的内容。通过初始化数组，可确保内存包含确定的值。 2. 需要初始化动态数组的元素吗？实际上是不需要的。动态数组无需将其元素初始化为默认值，除非应用程序要求数组包含特定的初始值。 3. C++中计算将字符串长度时，包括末尾的空字符吗？不包括。例如“Hello World”的长度为11，这">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-10T08:57:34.577Z">
+<meta property="og:updated_time" content="2019-07-07T12:30:20.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue学习--04">
-<meta name="twitter:description" content="内联元素(class) 方式1：直接使用html本身的class渲染元素 123&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;h2 class=&quot;red thin italic&quot;&amp;gt;这是h2标题,直接使用class实现属性内容的渲染&amp;lt;/h2&amp;gt;&amp;lt;/div&amp;gt;  方式2：使用Vue的数组形式   v-bind绑定class属性 1&amp;lt;h4 :class=&quot;[&apos;r">
+<meta name="twitter:title" content="c++问题解答-01">
+<meta name="twitter:description" content="一、基础问题1. 静态元素为什么需要初始化？如果不对其进行初始化，它将包含无法预测的值，因为内存保留最后一次操作时的内容。通过初始化数组，可确保内存包含确定的值。 2. 需要初始化动态数组的元素吗？实际上是不需要的。动态数组无需将其元素初始化为默认值，除非应用程序要求数组包含特定的初始值。 3. C++中计算将字符串长度时，包括末尾的空字符吗？不包括。例如“Hello World”的长度为11，这">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -116,14 +116,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Vue学习-04" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-c-问题解答-01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Vue学习--04
+      c++问题解答-01
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -131,12 +131,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/Vue学习/">Vue学习</a>
+                      <a href="/categories/C++/">C++</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-05-10
+          <i class="fa fa-calendar"></i>  2019-07-07
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -152,42 +152,15 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="内联元素-class"><a href="#内联元素-class" class="headerlink" title="内联元素(class)"></a>内联元素(class)</h2><ul>
-<li><p>方式1：直接使用html本身的class渲染元素</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"red thin italic"</span>&gt;</span>这是h2标题,直接使用class实现属性内容的渲染<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方式2：使用Vue的<strong>数组</strong>形式</p>
-</li>
-</ul>
-<p>v-bind绑定class属性<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">:class</span>=<span class="string">"['red','italic','thin']"</span>&gt;</span>这是另一个h4标题,使用vue提供的数组渲染：:class="['red','italic']"<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>方式3：三元表达式实现</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:class</span>=<span class="string">"['green','italic',flag?'active':'','thin']"</span>&gt;</span>在数组中使用三元表达式实现渲染<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这样写依旧比较麻烦，用以下对象的方式实现：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">:class</span>=<span class="string">"['green',&#123;'active':flag&#125;]"</span>&gt;</span>h4标题，三元表达式简写成对象的方式<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方式4：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:class</span>=<span class="string">"&#123;red:true,thin:true,italic,active:true&#125;"</span>&gt;</span>对象的方式<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>在为 class 使用 v-bind 绑定对象的时候，对象的属性是类名，可带引号也可不带，所以没写引号，有引号也没错；属性的值是一个标识符</p>
-<h2 id="style"><a href="#style" class="headerlink" title="style"></a>style</h2><ul>
-<li><p>直接绑定 style 属性</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">:style</span>=<span class="string">"&#123;color:'green','font-weight':200&#125;"</span>&gt;</span>这是测试<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>也可以将属性置于对象中</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">:style</span>=<span class="string">"object1"</span>&gt;</span>这是测试<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//script中的data域代码</span><br><span class="line">data:&#123;</span><br><span class="line">         object1: &#123;color:'red','font-weight':200&#125;,</span><br><span class="line">     &#125;,</span><br></pre></td></tr></table></figure>
-<ul>
-<li>应用多个样式对象</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">:style</span>=<span class="string">"[object1,object2]"</span>&gt;</span>这是测试<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//script中的data域代码</span><br><span class="line">    data:&#123;</span><br><span class="line">            object1: &#123;color:'red','font-weight':200&#125;,</span><br><span class="line">            object2: &#123;'font-style':'italic'&#125;,</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
-
+            <h4 id="一、基础问题"><a href="#一、基础问题" class="headerlink" title="一、基础问题"></a>一、基础问题</h4><h6 id="1-静态元素为什么需要初始化？"><a href="#1-静态元素为什么需要初始化？" class="headerlink" title="1. 静态元素为什么需要初始化？"></a>1. 静态元素为什么需要初始化？</h6><p>如果不对其进行初始化，它将包含无法预测的值，因为内存保留最后一次操作时的内容。通过初始化数组，可确保内存包含确定的值。</p>
+<h6 id="2-需要初始化动态数组的元素吗？"><a href="#2-需要初始化动态数组的元素吗？" class="headerlink" title="2. 需要初始化动态数组的元素吗？"></a>2. 需要初始化动态数组的元素吗？</h6><p>实际上是不需要的。动态数组无需将其元素初始化为默认值，除非应用程序要求数组包含特定的初始值。</p>
+<h6 id="3-C-中计算将字符串长度时，包括末尾的空字符吗？"><a href="#3-C-中计算将字符串长度时，包括末尾的空字符吗？" class="headerlink" title="3. C++中计算将字符串长度时，包括末尾的空字符吗？"></a>3. C++中计算将字符串长度时，包括末尾的空字符吗？</h6><p>不包括。例如“Hello World”的长度为11，这包括其中的空格，但不包括末尾的空字符。</p>
+<h6 id="4-i和i-的性能如何？"><a href="#4-i和i-的性能如何？" class="headerlink" title="4. ++i和i++的性能如何？"></a>4. ++i和i++的性能如何？</h6><p>前缀运算符(++i)性能在理论上是优于后缀运算符(i++)的，因为使用后缀运算符时，编译器需要临时存储初始值，一方需要将其赋给其他变量。</p>
+<h6 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h6>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年05月10日 16:57</p>
-        <p>原始链接： <a class="post-url" href="/2019/05/10/Vue学习-04/" title="Vue学习--04">http://merlin153.com/2019/05/10/Vue学习-04/</a></p>
+        <p>最后更新： 2019年07月07日 20:30</p>
+        <p>原始链接： <a class="post-url" href="/2019/07/07/c-问题解答-01/" title="c++问题解答-01">http://merlin153.com/2019/07/07/c-问题解答-01/</a></p>
         <footer>
             <a href="http://merlin153.com">
                 <img src="/images/logo.png" alt="merlin">
@@ -244,7 +217,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/05/10/Vue学习-04/&title=《Vue学习--04》 — Merlin's Blog&pic=/images/vuejs.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://merlin153.com/2019/07/07/c-问题解答-01/&title=《c++问题解答-01》 — Merlin's Blog&pic=/images/reptile.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -254,22 +227,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/05/10/Vue学习-04/&title=《Vue学习--04》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://merlin153.com/2019/07/07/c-问题解答-01/&title=《c++问题解答-01》 — Merlin's Blog&source=一个热爱 AI 的技术博客" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/05/10/Vue学习-04/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://merlin153.com/2019/07/07/c-问题解答-01/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue学习--04》 — Merlin's Blog&url=http://merlin153.com/2019/05/10/Vue学习-04/&via=http://merlin153.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《c++问题解答-01》 — Merlin's Blog&url=http://merlin153.com/2019/07/07/c-问题解答-01/&via=http://merlin153.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/05/10/Vue学习-04/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://merlin153.com/2019/07/07/c-问题解答-01/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -279,7 +252,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/05/10/Vue学习-04/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://merlin153.com/2019/07/07/c-问题解答-01/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -291,9 +264,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/vue/" class="color4">vue</a>
-      
-    <a href="/tags/前端框架/" class="color5">前端框架</a>
+    <a href="/tags/C++/" class="color4">C++</a>
       
   </li>
 
@@ -306,26 +277,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内联元素-class"><span class="post-toc-text">内联元素(class)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#style"><span class="post-toc-text">style</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、基础问题"><span class="post-toc-text">一、基础问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-静态元素为什么需要初始化？"><span class="post-toc-text">1. 静态元素为什么需要初始化？</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-需要初始化动态数组的元素吗？"><span class="post-toc-text">2. 需要初始化动态数组的元素吗？</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-C-中计算将字符串长度时，包括末尾的空字符吗？"><span class="post-toc-text">3. C++中计算将字符串长度时，包括末尾的空字符吗？</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-i和i-的性能如何？"><span class="post-toc-text">4. ++i和i++的性能如何？</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#5"><span class="post-toc-text">5.</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/05/11/Vue学习-05/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Vue学习--05
-        
-      </span>
-    </a>
   
-  
-    <a href="/2019/05/10/Vue学习-03/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Vue学习--03</span>
+    <a href="/2019/06/22/python爬虫基础01/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python爬虫基础01</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -334,7 +295,7 @@
 
 
     
-        <div id="SOHUCS" sid="Vue学习-04"></div>
+        <div id="SOHUCS" sid="c-问题解答-01"></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyu9kxEBM';

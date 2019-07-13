@@ -16,12 +16,13 @@
 <meta property="og:site_name" content="Merlin&#39;s Blog">
 <meta property="og:description" content="问题来源在很久以前，还没有虚拟内存概念的时候，程序寻址用的都是物理地址。程序能寻址的范围是有限的，这取决于CPU的地址线条数。比如在32位平台下，寻址的范围是2^32也就是4G。并且这是固定的，如果没有虚拟内存，且每次开启一个进程都给4G的物理内存，就可能会出现很多以下问题：  因为物理内存时有限的，当有多个进程要执行的时候，都要给4G内存，很显然你内存小一点，这很快就分配完了，于是没有得到分配资">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/forRandomNotes/PageCut.jpeg">
 <meta property="og:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/virtual_memary.png">
-<meta property="og:updated_time" content="2019-05-08T05:40:00.844Z">
+<meta property="og:updated_time" content="2019-07-07T16:06:29.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟内存和物理内存">
 <meta name="twitter:description" content="问题来源在很久以前，还没有虚拟内存概念的时候，程序寻址用的都是物理地址。程序能寻址的范围是有限的，这取决于CPU的地址线条数。比如在32位平台下，寻址的范围是2^32也就是4G。并且这是固定的，如果没有虚拟内存，且每次开启一个进程都给4G的物理内存，就可能会出现很多以下问题：  因为物理内存时有限的，当有多个进程要执行的时候，都要给4G内存，很显然你内存小一点，这很快就分配完了，于是没有得到分配资">
-<meta name="twitter:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/myPic/virtual_memary.png">
+<meta name="twitter:image" content="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/forRandomNotes/PageCut.jpeg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -160,7 +161,10 @@
 </blockquote>
 <p>我们都知道一个进程是与其他进程共享CPU和内存资源的,所以操作系统需要有一套完善的内存管理机制才能防止进程之间内存泄漏的问题。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;针对以上出现的各种问题，为了更加有效地管理内存并减少出错，现代操作系统提供了一种对主存的抽象概念，即是虚拟内存（Virtual Memory）。虚拟内存为每个进程提供了一个一致的、私有的地址空间，它让每个进程产生了一种自己在独享主存的错觉（每个进程拥有一片连续完整的内存空间），换句话说，这个虚拟内存你可以认为，每个进程都认为自己拥有4G的空间，这只是每个进程认为的，但是实际上，在虚拟内存对应的物理内存上，可能只对应的一点点的物理内存，实际用了多少内存，就会对应多少物理内存。进程得到的这4G虚拟内存是一个连续的地址空间（这也只是进程认为），而实际上，它通常是被分隔成多个物理内存碎片，还有一部分存储在外部磁盘存储器上，在需要时进行数据交换。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;理解不深刻的人会认为虚拟内存只是“使用硬盘空间来扩展内存“的技术，这是不对的。虚拟内存的重要意义是它定义了一个连续的虚拟地址空间，使得程序的编写难度降低。并且，把内存扩展到硬盘空间只是使用虚拟内存的必然结果，虚拟内存空间会存在硬盘中，并且会被内存缓存（按需），有的操作系统还会在内存不够的情况下，将某一进程的内存全部放入硬盘空间中，并在切换到该进程时再从硬盘读取（这也是为什么Windows会经常假死的原因…）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有的人会认为虚拟内存只是“使用硬盘空间来扩展内存“的技术，这是不对的。虚拟内存的重要意义是它定义了一个连续的虚拟地址空间，使得程序的编写难度降低。并且，把内存扩展到硬盘空间只是使用虚拟内存的必然结果，虚拟内存空间会存在硬盘中，并且会被内存缓存（按需），有的操作系统还会在内存不够的情况下，将某一进程的内存全部放入硬盘空间中，并在切换到该进程时再从硬盘读取（这也是为什么Windows会经常假死的原因…）。</p>
+<p>​        虚拟内存在当前的Windows中，虚拟内存的方法有分页式和分段式两种。Windows采用的是分页式。该方式指，在不考虑程序构造的情况下，把运行的程序按照一定大小的页进行分割，并以页为单位在内存和磁盘间进行置换。在分页式中，把磁盘的内容读到内存中称为 Page In,把内存的内容写入到磁盘 Page Out。一般情况下，Windows 计算机的页的大小是4KB。也就是说，把大程序用4KB的页来进行切分，并以页为单位放入磁盘（虚拟内存）或内存中。</p>
+<p>​        但是，如果认为虚拟内存就能解决内存不足的问题，那就错了，因为使用虚拟内存时发生的 Page In 和 Page Out 往往伴随着低俗的磁盘访问，因此这个过程中应用的运行时很迟钝的。换句话说，虚拟内存无法彻底解决内存不足的问题。另外一种方法就是将运行的应用文件变小，1. 通过DLL(Dynamic Link Library)文件实现函数共有；2. 通过调用 _stdcall 来见笑小程序文件的大小。</p>
+<p><img src="https://myblog-3-1256644108.cos.ap-shanghai.myqcloud.com/forRandomNotes/PageCut.jpeg" alt="分页式"></p>
 <h4 id="访问虚拟内存"><a href="#访问虚拟内存" class="headerlink" title="访问虚拟内存"></a>访问虚拟内存</h4><p>进程开始要访问一个地址，它可能会经历下面的过程：</p>
 <ol>
 <li>每次我要访问地址空间上的某一个地址，都需要把地址翻译为实际物理内存地址;</li>
@@ -181,13 +185,14 @@
 <li>当不同的进程使用同一段代码时，比如库文件的代码，在物理内存中可以只存储一份这样的代码，不同进程只要将自己的虚拟内存映射过去就好了，这样可以节省物理内存。</li>
 <li>在程序需要分配连续空间的时候，只需要在虚拟内存分配连续空间，而不需要物理内存时连续的，实际上，往往物理内存都是断断续续的内存碎片。这样就可以有效地利用我们的物理内存。</li>
 </ol>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>实际中，当内存不够使用时，可以借助虚拟内存运行程序。例如：在主机只剩下5MB内存空间的情况下也能运行10MB大小的程序。只不过，CPU只能执行加载到内存中的程序。虚拟内存虽说是把磁盘作为内存的一部分来使用，但实际上正在运行的程序部分，在这个时间点上是必须存在于内存中的。也就是说，为了实现虚拟内存，就必须把实际内存（也就是物理内存）的内容，和磁盘上的虚拟内存的内容进行部分置换，并同时运行程序。</p>
 <hr>
 <p>推荐参考：<br>[1]虚拟内存具体分析：<a href="https://www.cnblogs.com/dyllove98/archive/2013/06/12/3132940.html" target="_blank" rel="noopener">https://www.cnblogs.com/dyllove98/archive/2013/06/12/3132940.html</a></p>
 <p>[2]内存分配问题：<a href="https://juejin.im/post/59f8691b51882534af254317" target="_blank" rel="noopener">https://juejin.im/post/59f8691b51882534af254317</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年05月08日 13:40</p>
+        <p>最后更新： 2019年07月08日 00:06</p>
         <p>原始链接： <a class="post-url" href="/2019/04/11/虚拟内存和物理内存/" title="虚拟内存和物理内存">http://merlin153.com/2019/04/11/虚拟内存和物理内存/</a></p>
         <footer>
             <a href="http://merlin153.com">
@@ -307,7 +312,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题来源"><span class="post-toc-text">问题来源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方法"><span class="post-toc-text">解决方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问虚拟内存"><span class="post-toc-text">访问虚拟内存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#虚拟内存机制的优点"><span class="post-toc-text">虚拟内存机制的优点</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题来源"><span class="post-toc-text">问题来源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方法"><span class="post-toc-text">解决方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问虚拟内存"><span class="post-toc-text">访问虚拟内存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#虚拟内存机制的优点"><span class="post-toc-text">虚拟内存机制的优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -397,10 +402,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/Python进阶/">Python进阶</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/Vue学习/">Vue学习</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a><a class="category-link" href="/categories/爬虫实践/">爬虫实践</a><a class="category-link" href="/categories/计算机基础/">计算机基础</a>
+            <a class="category-link" href="/categories/C/">C++</a><a class="category-link" href="/categories/Git/">Git</a><a class="category-link" href="/categories/Python学习/">Python学习</a><a class="category-link" href="/categories/Python进阶/">Python进阶</a><a class="category-link" href="/categories/TCP原理/">TCP原理</a><a class="category-link" href="/categories/Vue学习/">Vue学习</a><a class="category-link" href="/categories/markdown语法/">markdown语法</a><a class="category-link" href="/categories/博客/">博客</a><a class="category-link" href="/categories/爬虫实践/">爬虫实践</a><a class="category-link" href="/categories/计算机基础/">计算机基础</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客/" style="font-size: 12.5px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 12.5px;">计算机</a>
+            <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客/" style="font-size: 12.5px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 12.5px;">计算机</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -433,7 +438,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客/" style="font-size: 12.5px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 12.5px;">计算机</a>
+            <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Git/" style="font-size: 12.5px;">Git</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/hexo主题/" style="font-size: 10px;">hexo主题</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/vi编辑器/" style="font-size: 10px;">vi编辑器</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/内存/" style="font-size: 10px;">内存</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客/" style="font-size: 12.5px;">博客</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/计算机/" style="font-size: 12.5px;">计算机</a>
         </div>
     </div>
 </div>
